@@ -1,0 +1,269 @@
+{
+  "userId": "user001",
+  "reportDate": "2024-09-19",
+  "reportPeriod": "Q3-2024",
+  "baseCurrency": "MYR",
+  "fxRates": {
+    "USD": 0.2174,
+    "MYR": 1.0000
+  },
+  "valuationDate": "2024-09-19T16:00:00Z",
+  "summary": {
+    "totalAssets": 384750.25,
+    "totalLiabilities": 125000.00,
+    "netWorth": 259750.25,
+    "currency": "MYR",
+    "note": "All values normalized to base currency MYR using rates as of valuationDate",
+    "changeFromPreviousQuarter": {
+      "amount": 18250.50,
+      "percentage": 7.56
+    },
+    "changeFromPreviousYear": {
+      "amount": 45875.75,
+      "percentage": 21.45
+    }
+  },
+  "assetBreakdown": {
+    "stocks": {
+      "value": 156780.50,
+      "percentage": 40.75,
+      "currency": "MYR",
+      "holdings": [
+        {"ticker": "AAPL", "value": 27337.50, "percentage": 17.45},
+        {"ticker": "MSFT", "value": 26288.00, "percentage": 16.77},
+        {"ticker": "NVDA", "value": 12130.00, "percentage": 7.74},
+        {"ticker": "GOOGL", "value": 6428.25, "percentage": 4.10},
+        {"ticker": "TSLA", "value": 8363.25, "percentage": 5.33},
+        {"ticker": "MAYBANK", "value": 19600.00, "percentage": 12.50},
+        {"ticker": "CIMB", "value": 9180.00, "percentage": 5.85},
+        {"ticker": "TENAGA", "value": 10480.00, "percentage": 6.68},
+        {"ticker": "GENTING", "value": 5940.00, "percentage": 3.79}
+      ]
+    },
+    "etfs": {
+      "value": 89985.00,
+      "percentage": 23.40,
+      "currency": "MYR",
+      "holdings": [
+        {"ticker": "SPY", "value": 43175.00, "percentage": 47.97},
+        {"ticker": "VTI", "value": 18435.00, "percentage": 20.49},
+        {"ticker": "BND", "value": 16190.00, "percentage": 18.00},
+        {"ticker": "KLCI", "value": 16250.00, "percentage": 18.06}
+      ]
+    },
+    "reits": {
+      "value": 13360.00,
+      "percentage": 3.47,
+      "currency": "MYR",
+      "holdings": [
+        {"ticker": "REIT-001", "value": 7600.00, "percentage": 56.88},
+        {"ticker": "REIT-002", "value": 5760.00, "percentage": 43.12}
+      ]
+    },
+    "cryptocurrency": {
+      "value": 47043.00,
+      "percentage": 12.23,
+      "currency": "USD",
+      "holdings": [
+        {"ticker": "BTC", "value": 31625.00, "percentage": 67.24},
+        {"ticker": "ETH", "value": 15418.00, "percentage": 32.76}
+      ]
+    },
+    "commodities": {
+      "value": 9640.00,
+      "percentage": 2.51,
+      "currency": "USD",
+      "holdings": [
+        {"ticker": "GOLD-ETF", "value": 9640.00, "percentage": 100.00}
+      ]
+    },
+    "cash_equivalents": {
+      "value": 76250.00,
+      "percentage": 19.82,
+      "currency": "MYR",
+      "holdings": [
+        {"type": "Fixed Deposit", "value": 51250.00, "percentage": 67.23},
+        {"type": "Savings Account", "value": 25000.00, "percentage": 32.77}
+      ]
+    }
+  },
+  "performanceMetrics": {
+    "totalReturn": {
+      "amount": 28750.25,
+      "percentage": 8.08,
+      "period": "Year-to-Date"
+    },
+    "unrealizedGains": {
+      "amount": 15425.75,
+      "percentage": 4.23
+    },
+    "realizedGains": {
+      "amount": 13324.50,
+      "percentage": 3.75
+    },
+    "dividendIncome": {
+      "amount": 4785.60,
+      "percentage": 1.35,
+      "frequency": "Quarterly"
+    },
+    "portfolioVolatility": 14.25,
+    "sharpeRatio": 1.18,
+    "maxDrawdown": -8.45
+  },
+  "sectorAllocation": {
+    "technology": {
+      "value": 98547.00,
+      "percentage": 25.61
+    },
+    "financialServices": {
+      "value": 58540.00,
+      "percentage": 15.22
+    },
+    "diversified": {
+      "value": 77860.00,
+      "percentage": 20.24
+    },
+    "digitalAssets": {
+      "value": 47043.00,
+      "percentage": 12.23
+    },
+    "realEstate": {
+      "value": 13360.00,
+      "percentage": 3.47
+    },
+    "energy": {
+      "value": 10480.00,
+      "percentage": 2.72
+    },
+    "consumerDiscretionary": {
+      "value": 14303.25,
+      "percentage": 3.72
+    },
+    "fixedIncome": {
+      "value": 16190.00,
+      "percentage": 4.21
+    },
+    "commodities": {
+      "value": 9640.00,
+      "percentage": 2.51
+    },
+    "cashEquivalents": {
+      "value": 76250.00,
+      "percentage": 19.82
+    }
+  },
+  "riskMetrics": {
+    "riskLevel": "Moderate Aggressive",
+    "riskScore": 6.8,
+    "diversificationScore": 8.5,
+    "concentrationRisk": "Low",
+    "topHoldingsConcentration": 28.45,
+    "currencyExposure": {
+      "MYR": 52.30,
+      "USD": 47.70
+    }
+  },
+  "goalProgress": {
+    "retirement": {
+      "targetAmount": 2000000.00,
+      "currentAmount": 875000.00,
+      "progressPercentage": 43.75,
+      "onTrack": true
+    },
+    "property": {
+      "targetAmount": 800000.00,
+      "currentAmount": 320000.00,
+      "progressPercentage": 40.00,
+      "onTrack": true
+    },
+    "education": {
+      "targetAmount": 500000.00,
+      "currentAmount": 145000.00,
+      "progressPercentage": 29.00,
+      "onTrack": true
+    },
+    "emergency": {
+      "targetAmount": 180000.00,
+      "currentAmount": 155000.00,
+      "progressPercentage": 86.11,
+      "onTrack": true
+    }
+  },
+  "incomeAnalysis": {
+    "monthlyIncome": {
+      "salary": 15000.00,
+      "dividends": 1595.20,
+      "rental": 3500.00,
+      "other": 450.00,
+      "total": 20545.20
+    },
+    "yearToDateIncome": {
+      "salary": 135000.00,
+      "dividends": 14356.80,
+      "rental": 31500.00,
+      "other": 4050.00,
+      "total": 184906.80
+    },
+    "incomeGrowth": {
+      "yearOverYear": 12.5,
+      "trend": "increasing"
+    }
+  },
+  "expenseAnalysis": {
+    "monthlyExpenses": {
+      "housing": 4500.00,
+      "utilities": 385.50,
+      "transportation": 800.00,
+      "food": 1200.00,
+      "insurance": 1250.00,
+      "investments": 8800.00,
+      "entertainment": 800.00,
+      "miscellaneous": 1264.50,
+      "total": 19000.00
+    },
+    "savingsRate": 45.2,
+    "emergencyFundCoverage": 10.33
+  },
+  "recommendations": [
+    {
+      "type": "asset_allocation",
+      "priority": "high",
+      "title": "Diversify Cryptocurrency Exposure",
+      "description": "Consider reducing cryptocurrency allocation from 12.23% to below 10% to manage portfolio risk."
+    },
+    {
+      "type": "goal_tracking", 
+      "priority": "medium",
+      "title": "Accelerate Education Fund Contributions",
+      "description": "Consider increasing monthly contributions to education fund to stay on track with timeline."
+    },
+    {
+      "type": "tax_optimization",
+      "priority": "medium", 
+      "title": "Review Tax-Efficient Investment Options",
+      "description": "Explore EPF voluntary contributions and SSPN for additional tax benefits."
+    },
+    {
+      "type": "rebalancing",
+      "priority": "low",
+      "title": "Portfolio Rebalancing Due",
+      "description": "Next quarterly rebalancing due in October 2024. Review sector allocations."
+    }
+  ],
+  "complianceStatus": {
+    "riskTolerance": "Compliant",
+    "regulatoryRequirements": "Met",
+    "amlChecks": "Passed",
+    "lastReview": "2024-09-15",
+    "nextReview": "2024-12-15"
+  },
+  "metadata": {
+    "generatedAt": "2024-09-19T16:00:00Z",
+    "reportVersion": "2.1",
+    "dataSource": "CIMB Wealth Management System",
+    "advisor": "Sarah Lim",
+    "advisorId": "user002",
+    "reportType": "Comprehensive Wealth Report",
+    "confidentialityLevel": "Confidential"
+  }
+}

@@ -1,0 +1,294 @@
+[
+  {
+    "id": "goal001",
+    "userId": "user001",
+    "title": "Retirement Planning",
+    "description": "Building a comfortable retirement fund to maintain current lifestyle after age 60",
+    "category": "Retirement",
+    "targetAmount": 2000000.00,
+    "currentAmount": 875000.00,
+    "currency": "MYR",
+    "targetDate": "2040-03-15",
+    "startDate": "2022-01-01", 
+    "monthlyContribution": 4500.00,
+    "progressPercentage": 43.75,
+    "status": "active",
+    "priority": "high",
+    "riskTolerance": "moderate",
+    "investmentStrategy": "balanced_growth",
+    "milestones": [
+      {
+        "amount": 500000.00,
+        "date": "2027-12-31",
+        "description": "First milestone - 25% of target",
+        "achieved": true,
+        "achievedDate": "2026-08-15"
+      },
+      {
+        "amount": 1000000.00,
+        "date": "2032-12-31",
+        "description": "Second milestone - 50% of target",
+        "achieved": false,
+        "estimatedDate": "2031-05-20"
+      },
+      {
+        "amount": 1500000.00,
+        "date": "2037-12-31",
+        "description": "Third milestone - 75% of target",
+        "achieved": false,
+        "estimatedDate": "2036-02-10"
+      }
+    ],
+    "linkedAccounts": ["holding006", "holding007", "holding008", "holding019"],
+    "createdAt": "2022-01-01T08:00:00Z",
+    "lastUpdated": "2024-09-19T16:00:00Z"
+  },
+  {
+    "id": "goal002",
+    "userId": "user001",
+    "title": "Property Investment",
+    "description": "Purchase a second property for rental income and capital appreciation",
+    "category": "Property",
+    "targetAmount": 800000.00,
+    "currentAmount": 320000.00,
+    "currency": "MYR",
+    "targetDate": "2026-06-30",
+    "startDate": "2023-01-01",
+    "monthlyContribution": 8000.00,
+    "progressPercentage": 40.00,
+    "status": "active",
+    "priority": "high",
+    "riskTolerance": "moderate",
+    "investmentStrategy": "property_focused",
+    "milestones": [
+      {
+        "amount": 200000.00,
+        "date": "2024-06-30",
+        "description": "Initial down payment fund",
+        "achieved": true,
+        "achievedDate": "2024-05-15"
+      },
+      {
+        "amount": 400000.00,
+        "date": "2025-06-30", 
+        "description": "50% of target amount",
+        "achieved": false,
+        "estimatedDate": "2025-08-20"
+      },
+      {
+        "amount": 600000.00,
+        "date": "2026-01-31",
+        "description": "75% of target amount",
+        "achieved": false,
+        "estimatedDate": "2026-02-15"
+      }
+    ],
+    "linkedAccounts": ["holding014", "holding015", "holding020"],
+    "additionalInfo": {
+      "propertyType": "Condominium",
+      "location": "Kuala Lumpur",
+      "expectedRentalYield": 4.5,
+      "loanAmount": 560000.00,
+      "loanToValueRatio": 70
+    },
+    "createdAt": "2023-01-01T08:00:00Z",
+    "lastUpdated": "2024-09-19T16:00:00Z"
+  },
+  {
+    "id": "goal003",
+    "userId": "user001",
+    "title": "Children's Education Fund",
+    "description": "Comprehensive education fund for children's university expenses including overseas study options",
+    "category": "Education",
+    "targetAmount": 500000.00,
+    "currentAmount": 145000.00,
+    "currency": "MYR",
+    "targetDate": "2035-09-01",
+    "startDate": "2021-09-01",
+    "monthlyContribution": 2500.00,
+    "progressPercentage": 29.00,
+    "status": "active",
+    "priority": "high",
+    "riskTolerance": "moderate_aggressive",
+    "investmentStrategy": "education_growth",
+    "milestones": [
+      {
+        "amount": 100000.00,
+        "date": "2025-12-31",
+        "description": "20% of target - foundation phase",
+        "achieved": true,
+        "achievedDate": "2024-11-30"
+      },
+      {
+        "amount": 250000.00,
+        "date": "2030-12-31",
+        "description": "50% of target - mid-phase",
+        "achieved": false,
+        "estimatedDate": "2029-07-15"
+      },
+      {
+        "amount": 400000.00,
+        "date": "2034-12-31",
+        "description": "80% of target - final phase",
+        "achieved": false,
+        "estimatedDate": "2034-03-20"
+      }
+    ],
+    "linkedAccounts": ["holding009", "holding001", "holding002"],
+    "additionalInfo": {
+      "numberOfChildren": 2,
+      "estimatedCostPerChild": 250000.00,
+      "studyDestinations": ["Malaysia", "Singapore", "Australia", "UK"],
+      "coursesConsidered": ["Engineering", "Medicine", "Business", "Computer Science"]
+    },
+    "createdAt": "2021-09-01T08:00:00Z",
+    "lastUpdated": "2024-09-19T16:00:00Z"
+  },
+  {
+    "id": "goal004",
+    "userId": "user001",
+    "title": "Emergency Fund",
+    "description": "Maintain 12 months of living expenses for financial security",
+    "category": "Emergency",
+    "targetAmount": 180000.00,
+    "currentAmount": 155000.00,
+    "currency": "MYR",
+    "targetDate": "2024-12-31",
+    "startDate": "2022-06-01",
+    "monthlyContribution": 1500.00,
+    "progressPercentage": 86.11,
+    "status": "near_completion",
+    "priority": "medium",
+    "riskTolerance": "conservative",
+    "investmentStrategy": "liquidity_focused",
+    "milestones": [
+      {
+        "amount": 60000.00,
+        "date": "2023-06-30",
+        "description": "4 months of expenses",
+        "achieved": true,
+        "achievedDate": "2023-04-20"
+      },
+      {
+        "amount": 120000.00,
+        "date": "2024-06-30",
+        "description": "8 months of expenses", 
+        "achieved": true,
+        "achievedDate": "2024-03-15"
+      },
+      {
+        "amount": 180000.00,
+        "date": "2024-12-31",
+        "description": "12 months of expenses - Full target",
+        "achieved": false,
+        "estimatedDate": "2024-11-30"
+      }
+    ],
+    "linkedAccounts": ["holding020", "holding019"],
+    "additionalInfo": {
+      "monthlyExpenses": 15000.00,
+      "targetMonthsCoverage": 12,
+      "currentMonthsCoverage": 10.33
+    },
+    "createdAt": "2022-06-01T08:00:00Z",
+    "lastUpdated": "2024-09-19T16:00:00Z"
+  },
+  {
+    "id": "goal005",
+    "userId": "user001",
+    "title": "Travel & Experiences Fund",
+    "description": "Annual budget for travel, vacations, and life experiences",
+    "category": "Lifestyle",
+    "targetAmount": 50000.00,
+    "currentAmount": 28500.00,
+    "currency": "MYR",
+    "targetDate": "2024-12-31",
+    "startDate": "2024-01-01",
+    "monthlyContribution": 3500.00,
+    "progressPercentage": 57.00,
+    "status": "active",
+    "priority": "low",
+    "riskTolerance": "conservative",
+    "investmentStrategy": "short_term_liquidity",
+    "milestones": [
+      {
+        "amount": 15000.00,
+        "date": "2024-06-30",
+        "description": "Mid-year travel budget",
+        "achieved": true,
+        "achievedDate": "2024-05-30"
+      },
+      {
+        "amount": 35000.00,
+        "date": "2024-09-30",
+        "description": "Year-end travel budget",
+        "achieved": false,
+        "estimatedDate": "2024-10-15"
+      },
+      {
+        "amount": 50000.00,
+        "date": "2024-12-31",
+        "description": "Full annual travel budget",
+        "achieved": false,
+        "estimatedDate": "2024-12-20"
+      }
+    ],
+    "linkedAccounts": ["holding020"],
+    "additionalInfo": {
+      "plannedDestinations": ["Japan", "Europe", "Australia", "Local destinations"],
+      "travelStyle": "Moderate luxury",
+      "annualReset": true
+    },
+    "createdAt": "2024-01-01T08:00:00Z",
+    "lastUpdated": "2024-09-19T16:00:00Z"
+  },
+  {
+    "id": "goal006",
+    "userId": "user001",
+    "title": "Technology & Innovation Investment",
+    "description": "Build a focused portfolio in emerging technologies and innovation sectors",
+    "category": "Investment",
+    "targetAmount": 300000.00,
+    "currentAmount": 185000.00,
+    "currency": "USD",
+    "targetDate": "2027-12-31",
+    "startDate": "2023-03-01",
+    "monthlyContribution": 2800.00,
+    "progressPercentage": 61.67,
+    "status": "active",
+    "priority": "medium",
+    "riskTolerance": "aggressive",
+    "investmentStrategy": "tech_growth",
+    "milestones": [
+      {
+        "amount": 100000.00,
+        "date": "2024-12-31",
+        "description": "Initial tech portfolio base",
+        "achieved": true,
+        "achievedDate": "2024-07-20"
+      },
+      {
+        "amount": 200000.00,
+        "date": "2026-06-30",
+        "description": "Substantial tech allocation",
+        "achieved": false,
+        "estimatedDate": "2025-12-15"
+      },
+      {
+        "amount": 300000.00,
+        "date": "2027-12-31",
+        "description": "Target tech portfolio value",
+        "achieved": false,
+        "estimatedDate": "2027-09-30"
+      }
+    ],
+    "linkedAccounts": ["holding001", "holding002", "holding003", "holding004", "holding017", "holding018"],
+    "additionalInfo": {
+      "focusSectors": ["Artificial Intelligence", "Renewable Energy", "Biotechnology", "Cryptocurrency", "Cloud Computing"],
+      "riskLevel": "High",
+      "expectedAnnualReturn": 12.5
+    },
+    "createdAt": "2023-03-01T08:00:00Z",
+    "lastUpdated": "2024-09-19T16:00:00Z"
+  }
+]

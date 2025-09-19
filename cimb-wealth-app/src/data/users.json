@@ -1,0 +1,71 @@
+[
+  {
+    "id": "user001",
+    "username": "john.doe",
+    "passwordHash": "$2b$10$N9qo8uLOickgx2ZMRZoMye1y8O4F8T8RqklIZpNQnVCN8F8wY3cNm",
+    "role": "customer",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@email.com",
+    "phone": "+60123456789",
+    "dateOfBirth": "1985-03-15",
+    "accountNumber": "CIMB-001-234567",
+    "profilePicture": "/images/avatar1.jpg",
+    "preferences": {
+      "theme": "light",
+      "currency": "MYR",
+      "language": "en",
+      "notifications": {
+        "email": true,
+        "sms": false,
+        "push": true
+      }
+    },
+    "createdAt": "2022-01-15T08:00:00Z",
+    "lastLogin": "2024-09-19T14:30:00Z"
+  },
+  {
+    "id": "user002", 
+    "username": "sarah.lim",
+    "passwordHash": "$2b$10$5D4V3bx8pY2sGx7mKjA9zu9Q6w1eY8rK3nL9mT5sR4vH7cP2mN8qE",
+    "role": "advisor",
+    "firstName": "Sarah",
+    "lastName": "Lim",
+    "email": "sarah.lim@cimb.com",
+    "phone": "+60198765432",
+    "dateOfBirth": "1978-08-22",
+    "employeeId": "CIMB-ADV-5678",
+    "profilePicture": "/images/avatar2.jpg",
+    "specialization": "Portfolio Management",
+    "clientsManaged": 45,
+    "preferences": {
+      "theme": "dark",
+      "currency": "MYR",
+      "language": "en"
+    },
+    "createdAt": "2020-05-20T09:00:00Z",
+    "lastLogin": "2024-09-19T16:45:00Z"
+  },
+  {
+    "id": "user003",
+    "username": "admin.tan",
+    "passwordHash": "$2b$10$8K2M7nB5qX3oJy9wL6cF8u3Q9z4eY7rT2pM8sV1lR5dH6gN9mK7qA",
+    "role": "admin",
+    "firstName": "Michael",
+    "lastName": "Tan",
+    "email": "michael.tan@cimb.com", 
+    "phone": "+60187654321",
+    "dateOfBirth": "1975-12-10",
+    "employeeId": "CIMB-ADM-1234",
+    "profilePicture": "/images/avatar3.jpg",
+    "department": "Wealth Management Operations",
+    "accessLevel": "full",
+    "preferences": {
+      "theme": "light",
+      "currency": "MYR",
+      "language": "en"
+    },
+    "createdAt": "2019-03-01T08:30:00Z",
+    "lastLogin": "2024-09-19T17:15:00Z"
+  }
+]
