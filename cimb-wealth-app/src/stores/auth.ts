@@ -79,9 +79,20 @@ export const useAuthStore = defineStore('auth', () => {
       // Update last login time
       currentUser.value.lastLogin = new Date().toISOString()
       
-      // Save to localStorage for persistence
+      // Save to localStorage for persistence (exclude sensitive data)
+      const userForStorage = {
+        id: currentUser.value.id,
+        username: currentUser.value.username,
+        role: currentUser.value.role,
+        firstName: currentUser.value.firstName,
+        lastName: currentUser.value.lastName,
+        email: currentUser.value.email,
+        profilePicture: currentUser.value.profilePicture,
+        preferences: currentUser.value.preferences,
+        lastLogin: currentUser.value.lastLogin
+      }
       localStorage.setItem('authToken', 'mock-jwt-token-' + user.id)
-      localStorage.setItem('currentUser', JSON.stringify(currentUser.value))
+      localStorage.setItem('currentUser', JSON.stringify(userForStorage))
       
       return true
     } catch (error) {
