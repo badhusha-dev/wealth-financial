@@ -1,0 +1,60 @@
+Create a production-ready Vue 3 application using Vite for the "CIMB Wealth Financial App".
+
+Tech stack:
+- Vue 3 with Composition API
+- Vue Router for navigation
+- Pinia for state management
+- BootstrapVue 3 for modern UI components with CIMB brand-inspired theme (red/white/gray, light/dark mode toggle)
+- Three.js for 3D visualization (interactive wealth growth chart / portfolio cube)
+- AG-Grid Vue for interactive data tables (sortable, filterable, pagination)
+- Chart.js or ECharts for financial analytics (pie charts for portfolio, line chart for trends)
+- Dummy JSON data for users, portfolios, transactions, and goals
+- Reports page with downloadable CSV/PDF (stub, simulated)
+- Responsive, mobile-first design
+
+Pages to include:
+1. **Login Page** – Simple login with username/password (mock auth).
+2. **Dashboard** – Net worth summary, quick stats, latest transactions.
+3. **Portfolio Page** – AG-Grid table for holdings (ticker, asset type, quantity, price, value). Include chart for sector allocation.
+4. **Transactions Page** – Paginated AG-Grid with filterable history (date, description, debit, credit, balance).
+5. **Goals Page** – List of financial goals with progress bars and completion %.
+6. **Reports Page** – Export portfolio summary as CSV/PDF, display aggregated values.
+7. **3D Wealth Visualization** – Three.js scene showing a 3D cube or animated bar chart representing wealth growth.
+
+UI/UX:
+- Modern dashboard layout (sidebar + top nav bar).
+- Light/Dark mode toggle.
+- CIMB branding theme (deep red primary, neutral grays).
+- Use cards, shadows, rounded corners, smooth hover animations.
+- Framer Motion (or Vue Transitions) for page transitions.
+
+Dummy Data:
+- Users: 3 sample users (customer, advisor, admin).
+- Holdings: 20+ assets across Tech, Bonds, Real Estate, Energy.
+- Transactions: 50+ records with varying debit/credit.
+- Goals: Retirement, Property, Education savings.
+- Reports: Pre-aggregated JSON with totalAssets, liabilities, netWorth.
+
+Project Structure:
+- /src
+  /components
+  /pages
+  /store
+  /data (JSON seeds)
+  /charts (Chart.js/ECharts + Three.js components)
+- Use Pinia for user session + portfolio state.
+- Provide example queries for AG-Grid filtering.
+
+Deliverables:
+- Full Vue 3 + Vite app scaffold.
+- BootstrapVue theme setup with CIMB colors.
+- Dummy JSON files for data simulation.
+- Dashboard with summary cards and charts.
+- Working routing between pages.
+- Download button on Reports page exporting CSV (stub).
+- Three.js wealth chart component.
+- Light/Dark mode toggle.
+
+Include:
+- `package.json` with all dependencies (vue, vue-router, pinia, bootstrap-vue-3, ag-grid-vue3, three, chart.js, file-saver).
+- README with setup instructions (`npm install`, `npm run dev`).
