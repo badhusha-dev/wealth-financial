@@ -74,6 +74,24 @@
       </div>
     </div>
 
+    <!-- 3D Wealth Visualization -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-transparent border-bottom-0">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-cube text-primary me-2"></i>
+              3D Wealth Visualization
+            </h5>
+          </div>
+          <div class="card-body">
+            <ThreeVisualization :height="400" :auto-update="true" />
+            <p class="text-muted mt-3 mb-0">Interactive 3D visualization of your portfolio allocation and performance metrics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Recent Activity -->
     <div class="row">
       <div class="col-lg-8 mb-4">
@@ -197,6 +215,7 @@ import { useAuthStore } from '@/stores/auth'
 import { usePortfolioStore } from '@/stores/portfolio'
 import { useTransactionsStore } from '@/stores/transactions'
 import { useGoalsStore } from '@/stores/goals'
+import ThreeVisualization from '@/components/charts/ThreeVisualization.vue'
 
 const authStore = useAuthStore()
 const portfolioStore = usePortfolioStore()
