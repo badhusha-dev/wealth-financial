@@ -17,6 +17,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.1",
     "@popperjs/core": "^2.11.8",
     "ag-grid-community": "^34.2.0",
     "ag-grid-vue3": "^34.2.0",
