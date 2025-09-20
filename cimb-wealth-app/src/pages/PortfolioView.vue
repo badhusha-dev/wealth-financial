@@ -188,7 +188,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, nextTick } from 'vue'
 import { usePortfolioStore } from '@/stores/portfolio'
-import { Chart, ChartConfiguration, registerables } from 'chart.js'
+import { Chart, type ChartConfiguration, registerables } from 'chart.js'
 import { AgGridVue } from 'ag-grid-vue3'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
@@ -209,7 +209,7 @@ const columnDefs = ref([
     headerName: 'Symbol',
     field: 'ticker',
     width: 100,
-    pinned: 'left',
+    pinned: 'left' as const,
     cellClass: 'fw-bold',
     sortable: true,
     filter: 'agTextColumnFilter'

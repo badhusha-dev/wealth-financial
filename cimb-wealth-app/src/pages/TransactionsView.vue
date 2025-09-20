@@ -221,7 +221,7 @@ const columnDefs = ref([
     headerName: 'Date',
     field: 'date',
     width: 120,
-    pinned: 'left',
+    pinned: 'left' as const,
     sortable: true,
     filter: 'agDateColumnFilter',
     filterParams: {
@@ -240,7 +240,7 @@ const columnDefs = ref([
       }
     },
     valueFormatter: (params: any) => new Date(params.value).toLocaleDateString(),
-    sort: 'desc' // Default sort by date descending
+    sort: 'desc' as const // Default sort by date descending
   },
   {
     headerName: 'Description',
