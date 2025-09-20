@@ -1,4 +1,4 @@
-modules = ["nodejs-22"]
+modules = ["vue-node-20", "nodejs-20", "web"]
 [agent]
 expertMode = true
 
@@ -33,3 +33,6 @@ externalPort = 80
 [[ports]]
 localPort = 33065
 externalPort = 3001
+
+[nix]
+channel = "stable-25_05"
