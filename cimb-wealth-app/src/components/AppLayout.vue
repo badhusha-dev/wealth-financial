@@ -21,6 +21,9 @@
         </router-view>
       </main>
     </div>
+    
+    <!-- Floating Action Button -->
+    <FloatingActionButton />
   </div>
 </template>
 
@@ -29,6 +32,7 @@ import { onMounted } from 'vue'
 import { useThemeStore } from '@/stores/theme'
 import AppSidebar from './AppSidebar.vue'
 import AppNavbar from './AppNavbar.vue'
+import FloatingActionButton from './FloatingActionButton.vue'
 
 const themeStore = useThemeStore()
 

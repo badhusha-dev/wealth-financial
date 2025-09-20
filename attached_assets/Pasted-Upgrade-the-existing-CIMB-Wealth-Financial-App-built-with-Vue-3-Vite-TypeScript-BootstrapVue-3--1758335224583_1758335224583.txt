@@ -1,0 +1,55 @@
+Upgrade the existing "CIMB Wealth Financial App" built with Vue 3, Vite, TypeScript, BootstrapVue 3, Pinia, Vue Router, AG-Grid, Chart.js, and Three.js.
+
+Focus: Improve UX/UI design with modern financial dashboard aesthetics.
+
+Design Goals:
+- Use **CIMB branding** (deep red, burgundy gradients, white, neutral grays).
+- Apply **glassmorphism** for cards and panels (blurred backgrounds, frosted glass look).
+- Add **micro-interactions** with Vue transitions and hover animations.
+- Ensure **dark/light mode toggle** is polished with smooth theme switching.
+- Enhance **mobile UX** with:
+  - Floating Action Button (FAB) for quick actions (e.g., Add Goal, Export Report).
+  - Collapsible sidebar and swipe gestures for transactions.
+- Dashboard widgets should look **dynamic and modular**:
+  - Net worth card with animated counter.
+  - Portfolio donut chart with center value overlay.
+  - Market ticker bar (dummy stock prices scrolling horizontally).
+- Portfolio & Transactions:
+  - Compact/dense toggle in AG-Grid for more/less detail.
+  - Smooth hover highlights on rows.
+- Goals Page:
+  - Circular progress bars with animated radial filling.
+  - Gamification badges (e.g., "50% Goal Achieved").
+- Reports Page:
+  - Polished export buttons (CSV/PDF) with icons.
+  - Use cards for different report sections.
+- 3D Wealth Visualization:
+  - Improve aesthetics with a gradient background and soft camera transitions.
+  - Animate wealth growth bars with easing effects.
+
+Project Requirements:
+- Keep existing features (Login, Dashboard, Portfolio, Transactions, Goals, Reports, 3D Visualization).
+- Apply **global theme styles** (variables for colors, shadows, blur).
+- Create a `/theme` utility to manage colors, gradients, shadows.
+- Implement **Vue transitions** for:
+  - Page navigation
+  - Card mount/unmount
+  - Chart updates
+- Ensure responsive design for desktop, tablet, mobile.
+- Add **modern typography** (Google Fonts: Inter or Poppins).
+- Optimize accessibility (ARIA roles, keyboard navigation).
+
+Deliverables:
+- Updated Vue components with modern UI.
+- New CSS/SCSS theme file with glassmorphism & gradients.
+- Smooth animations for dashboard cards, charts, and tables.
+- Floating Action Button with action menu.
+- Market ticker dummy component.
+- Updated README with design system notes.
+
+Dependencies to add:
+- `bootstrap-vue-3`
+- `vueuse` (for dark mode toggling and utilities)
+- `@vueuse/motion` or `vue3-transitions` (for animations)
+- `@fortawesome/vue-fontawesome` (icons)
+- `animejs` (for counters and chart animations)

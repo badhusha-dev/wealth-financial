@@ -5,7 +5,7 @@
       <div class="col-12">
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <h1 class="h2 mb-1">Financial Goals</h1>
+            <h1 class="h2 mb-1 gradient-text font-secondary">Financial Goals</h1>
             <p class="text-muted mb-0">Track your progress towards achieving your financial objectives</p>
           </div>
           <div class="text-end">
@@ -29,7 +29,7 @@
     <!-- Overall Progress Summary -->
     <div class="row mb-4">
       <div class="col-12">
-        <div class="card border-0 shadow-sm">
+        <div class="card glass-card card-animated">
           <div class="card-body">
             <div class="row">
               <div class="col-lg-3 col-md-6 mb-3 mb-lg-0">
@@ -86,10 +86,38 @@
       </div>
     </div>
 
+    <!-- Gamification Section -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card glass-card card-animated">
+          <div class="card-header glass">
+            <h5 class="mb-0 font-secondary gradient-text">
+              <i class="fas fa-trophy me-2"></i>
+              Achievement Badges
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div v-for="badge in achievementBadges" :key="badge.id" class="col-lg-6 col-xl-4 mb-3">
+                <GameBadge
+                  :title="badge.title"
+                  :description="badge.description"
+                  :icon="badge.icon"
+                  :type="badge.type"
+                  :earned="badge.earned"
+                  :progress="badge.progress"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Goals Filter Tabs -->
     <div class="row mb-4">
       <div class="col-12">
-        <ul class="nav nav-pills nav-fill bg-light rounded p-1">
+        <ul class="nav nav-pills nav-fill glass rounded p-1">
           <li class="nav-item">
             <a class="nav-link" 
                :class="{ active: activeFilter === 'all' }"
@@ -156,47 +184,44 @@
     <!-- Goals Grid -->
     <div v-else class="row">
       <div v-for="goal in filteredGoals" :key="goal.id" class="col-lg-6 col-xl-4 mb-4">
-        <div class="card h-100 border-0 shadow-sm goal-card" 
+        <div class="card glass-card card-animated h-100 goal-card micro-bounce" 
              :class="getGoalCardClass(goal)">
           <div class="card-body">
             <!-- Goal Header -->
-            <div class="d-flex justify-content-between align-items-start mb-3">
+            <div class="d-flex justify-content-between align-items-start mb-4">
               <div class="flex-grow-1">
-                <h5 class="card-title mb-1">{{ goal.title }}</h5>
+                <h5 class="card-title mb-2 font-secondary">{{ goal.title }}</h5>
                 <span class="badge rounded-pill" :class="getCategoryBadgeClass(goal.category)">
                   {{ goal.category }}
                 </span>
               </div>
               <div class="dropdown">
-                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" 
+                <button class="btn btn-sm btn-glass dropdown-toggle" 
                         type="button" data-bs-toggle="dropdown">
                   <i class="fas fa-ellipsis-v"></i>
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu glass">
                   <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
                   <li><a class="dropdown-item" href="#"><i class="fas fa-trash me-2"></i>Delete</a></li>
                 </ul>
               </div>
             </div>
 
-            <!-- Progress Section -->
-            <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="fw-medium">Progress</span>
-                <span class="badge bg-primary rounded-pill">
-                  {{ Math.round(goal.progressPercentage) }}%
-                </span>
-              </div>
-              <div class="progress mb-2" style="height: 8px;">
-                <div class="progress-bar" 
-                     :class="getProgressBarClass(goal)"
-                     :style="{ width: goal.progressPercentage + '%' }"
-                     role="progressbar">
+            <!-- Enhanced Progress Section with Circular Progress -->
+            <div class="text-center mb-4">
+              <CircularProgress
+                :value="goal.progressPercentage"
+                :size="100"
+                :color="getProgressColor(goal)"
+                :glow="goal.progressPercentage > 75"
+                :label="goal.category"
+                :animation-duration="2000"
+              />
+              <div class="mt-3">
+                <div class="d-flex justify-content-between small text-muted">
+                  <span>Current: {{ formatCurrency(goal.currentAmount, goal.currency) }}</span>
+                  <span>Target: {{ formatCurrency(goal.targetAmount, goal.currency) }}</span>
                 </div>
-              </div>
-              <div class="d-flex justify-content-between small text-muted">
-                <span>{{ formatCurrency(goal.currentAmount, goal.currency) }}</span>
-                <span>{{ formatCurrency(goal.targetAmount, goal.currency) }}</span>
               </div>
             </div>
 
@@ -231,11 +256,11 @@
 
             <!-- Action Buttons -->
             <div class="d-flex gap-2">
-              <button class="btn btn-sm btn-outline-primary flex-grow-1">
+              <button class="btn btn-sm btn-glass flex-grow-1 micro-bounce">
                 <i class="fas fa-plus me-1"></i>
                 Add Progress
               </button>
-              <button class="btn btn-sm btn-outline-info">
+              <button class="btn btn-sm btn-glass micro-bounce">
                 <i class="fas fa-chart-line"></i>
               </button>
             </div>
@@ -258,11 +283,63 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useGoalsStore } from '@/stores/goals'
+import CircularProgress from '@/components/CircularProgress.vue'
+import GameBadge from '@/components/GameBadge.vue'
 
 const goalsStore = useGoalsStore()
 
 // Filter state
 const activeFilter = ref('all')
+
+// Achievement badges
+const achievementBadges = computed(() => [
+  {
+    id: 'first-goal',
+    title: 'Goal Setter',
+    description: 'Created your first financial goal',
+    icon: 'fas fa-bullseye',
+    type: 'bronze',
+    earned: goalsStore.userGoals.length > 0,
+    progress: goalsStore.userGoals.length > 0 ? 100 : 0
+  },
+  {
+    id: 'halfway-hero',
+    title: 'Halfway Hero',
+    description: 'Reached 50% progress on any goal',
+    icon: 'fas fa-chart-line',
+    type: 'silver',
+    earned: goalsStore.userGoals.some(goal => goal.progressPercentage >= 50),
+    progress: Math.max(...goalsStore.userGoals.map(goal => Math.min(goal.progressPercentage * 2, 100)), 0)
+  },
+  {
+    id: 'goal-crusher',
+    title: 'Goal Crusher',
+    description: 'Completed your first goal',
+    icon: 'fas fa-trophy',
+    type: 'gold',
+    earned: goalsStore.userGoals.some(goal => goal.progressPercentage >= 100),
+    progress: goalsStore.userGoals.some(goal => goal.progressPercentage >= 100) ? 100 : 
+              Math.max(...goalsStore.userGoals.map(goal => goal.progressPercentage), 0)
+  },
+  {
+    id: 'consistent-saver',
+    title: 'Consistent Saver',
+    description: 'Maintain 3 active goals simultaneously',
+    icon: 'fas fa-coins',
+    type: 'platinum',
+    earned: goalsStore.activeGoals.length >= 3,
+    progress: Math.min((goalsStore.activeGoals.length / 3) * 100, 100)
+  },
+  {
+    id: 'wealth-master',
+    title: 'Wealth Master',
+    description: 'Achieved over RM100,000 in total goals',
+    icon: 'fas fa-gem',
+    type: 'diamond',
+    earned: goalsStore.userGoals.reduce((sum, goal) => sum + goal.targetAmount, 0) >= 100000,
+    progress: Math.min((goalsStore.userGoals.reduce((sum, goal) => sum + goal.targetAmount, 0) / 100000) * 100, 100)
+  }
+])
 
 // Computed properties for goal statistics
 const completedGoalsCount = computed(() => 
@@ -420,6 +497,14 @@ function formatCurrency(amount: number, currency = 'MYR'): string {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0
   }).format(amount)
+}
+
+function getProgressColor(goal: any): string {
+  if (goal.progressPercentage >= 100) return '#28a745' // Success green
+  if (goal.progressPercentage >= 75) return '#17a2b8'  // Info blue
+  if (goal.progressPercentage >= 50) return '#ffc107'  // Warning yellow
+  if (goal.progressPercentage >= 25) return '#fd7e14'  // Orange
+  return 'var(--cimb-red)' // Primary red
 }
 
 async function refreshGoals() {

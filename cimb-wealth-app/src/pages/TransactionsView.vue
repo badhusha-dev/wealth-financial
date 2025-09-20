@@ -5,7 +5,7 @@
       <div class="col-12">
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <h1 class="h2 mb-1">Transaction History</h1>
+            <h1 class="h2 mb-1 gradient-text font-secondary">Transaction History</h1>
             <p class="text-muted mb-0">View and manage all your financial transactions</p>
           </div>
           <div class="text-end">
@@ -26,8 +26,8 @@
     <!-- Summary Cards -->
     <div class="row mb-4">
       <div class="col-lg-3 col-md-6 mb-3">
-        <div class="card bg-success text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce h-100" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <h6 class="card-title mb-1">Total Income</h6>
@@ -40,8 +40,8 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6 mb-3">
-        <div class="card bg-danger text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce h-100" style="background: var(--gradient-danger);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <h6 class="card-title mb-1">Total Expenses</h6>

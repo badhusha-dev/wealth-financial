@@ -1,11 +1,14 @@
 <template>
   <div class="container-fluid p-4">
+    <!-- Market Ticker -->
+    <MarketTicker />
+
     <!-- Welcome Section -->
     <div class="row mb-4">
       <div class="col-12">
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <h1 class="h2 mb-1">Welcome back, {{ authStore.currentUser?.firstName }}!</h1>
+            <h1 class="h2 mb-1 gradient-text font-secondary">Welcome back, {{ authStore.currentUser?.firstName }}!</h1>
             <p class="text-muted mb-0">Here's your financial overview for today</p>
           </div>
           <div class="text-end">
@@ -18,56 +21,56 @@
     <!-- Quick Stats Cards -->
     <div class="row mb-4">
       <div class="col-md-3 col-sm-6 mb-3">
-        <div class="card bg-primary text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce" style="background: var(--gradient-primary);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
-                <h6 class="card-title mb-1">Net Worth</h6>
-                <h4 class="mb-0">{{ formatCurrency(portfolioStore.totalPortfolioValue) }}</h4>
+                <h6 class="card-title mb-1 font-secondary">Net Worth</h6>
+                <h4 class="mb-0 animated-counter" ref="netWorthCounter">{{ formatCurrency(portfolioStore.totalPortfolioValue) }}</h4>
               </div>
-              <i class="fas fa-chart-line fa-2x opacity-50"></i>
+              <i class="fas fa-chart-line fa-2x opacity-75"></i>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-3 col-sm-6 mb-3">
-        <div class="card bg-success text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
-                <h6 class="card-title mb-1">Total Gains</h6>
-                <h4 class="mb-0">{{ formatCurrency(portfolioStore.totalUnrealizedGain) }}</h4>
+                <h6 class="card-title mb-1 font-secondary">Total Gains</h6>
+                <h4 class="mb-0 animated-counter" ref="gainsCounter">{{ formatCurrency(portfolioStore.totalUnrealizedGain) }}</h4>
                 <small class="opacity-75">{{ formatPercentage(portfolioStore.totalUnrealizedGainPercent) }}</small>
               </div>
-              <i class="fas fa-arrow-up fa-2x opacity-50"></i>
+              <i class="fas fa-arrow-up fa-2x opacity-75"></i>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-3 col-sm-6 mb-3">
-        <div class="card bg-info text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce" style="background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
-                <h6 class="card-title mb-1">Active Goals</h6>
-                <h4 class="mb-0">{{ goalsStore.activeGoals.length }}</h4>
+                <h6 class="card-title mb-1 font-secondary">Active Goals</h6>
+                <h4 class="mb-0 animated-counter" ref="goalsCounter">{{ goalsStore.activeGoals.length }}</h4>
                 <small class="opacity-75">{{ formatPercentage(goalsStore.overallProgress) }} complete</small>
               </div>
-              <i class="fas fa-bullseye fa-2x opacity-50"></i>
+              <i class="fas fa-bullseye fa-2x opacity-75"></i>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-3 col-sm-6 mb-3">
-        <div class="card bg-warning text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce" style="background: linear-gradient(135deg, #fd7e14 0%, #e83e8c 100%);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
-                <h6 class="card-title mb-1">Monthly Income</h6>
-                <h4 class="mb-0">{{ formatCurrency(transactionsStore.totalIncome / 12) }}</h4>
+                <h6 class="card-title mb-1 font-secondary">Monthly Income</h6>
+                <h4 class="mb-0 animated-counter" ref="incomeCounter">{{ formatCurrency(transactionsStore.totalIncome / 12) }}</h4>
                 <small class="opacity-75">Avg per month</small>
               </div>
-              <i class="fas fa-dollar-sign fa-2x opacity-50"></i>
+              <i class="fas fa-dollar-sign fa-2x opacity-75"></i>
             </div>
           </div>
         </div>
@@ -210,17 +213,25 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { usePortfolioStore } from '@/stores/portfolio'
 import { useTransactionsStore } from '@/stores/transactions'
 import { useGoalsStore } from '@/stores/goals'
 import ThreeVisualization from '@/components/charts/ThreeVisualization.vue'
+import MarketTicker from '@/components/MarketTicker.vue'
+import ThemeUtils from '@/utils/theme'
 
 const authStore = useAuthStore()
 const portfolioStore = usePortfolioStore()
 const transactionsStore = useTransactionsStore()
 const goalsStore = useGoalsStore()
+
+// Refs for animated counters
+const netWorthCounter = ref<HTMLElement>()
+const gainsCounter = ref<HTMLElement>()
+const goalsCounter = ref<HTMLElement>()
+const incomeCounter = ref<HTMLElement>()
 
 // Initialize auth from localStorage
 onMounted(async () => {
@@ -233,8 +244,60 @@ onMounted(async () => {
       transactionsStore.loadTransactions(),
       goalsStore.loadGoals()
     ])
+    
+    // Animate counters after data is loaded
+    setTimeout(() => {
+      animateCounters()
+    }, 500)
   }
 })
+
+function animateCounters() {
+  if (!ThemeUtils.prefersReducedMotion()) {
+    // Animate Net Worth
+    if (netWorthCounter.value) {
+      ThemeUtils.animateCounter(
+        netWorthCounter.value,
+        0,
+        portfolioStore.totalPortfolioValue,
+        2000,
+        (value) => ThemeUtils.formatCurrency(value, 'MYR')
+      )
+    }
+    
+    // Animate Gains
+    if (gainsCounter.value) {
+      ThemeUtils.animateCounter(
+        gainsCounter.value,
+        0,
+        portfolioStore.totalUnrealizedGain,
+        2000,
+        (value) => ThemeUtils.formatCurrency(value, 'MYR')
+      )
+    }
+    
+    // Animate Goals Count
+    if (goalsCounter.value) {
+      ThemeUtils.animateCounter(
+        goalsCounter.value,
+        0,
+        goalsStore.activeGoals.length,
+        1500
+      )
+    }
+    
+    // Animate Monthly Income
+    if (incomeCounter.value) {
+      ThemeUtils.animateCounter(
+        incomeCounter.value,
+        0,
+        transactionsStore.totalIncome / 12,
+        2000,
+        (value) => ThemeUtils.formatCurrency(value, 'MYR')
+      )
+    }
+  }
+}
 
 function formatCurrency(amount: number): string {
   return new Intl.NumberFormat('en-MY', {

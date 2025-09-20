@@ -1,19 +1,19 @@
 <template>
   <div class="three-visualization-container">
-    <div class="controls-panel mb-3">
+    <div class="controls-panel glass rounded p-3 mb-3">
       <div class="row g-2 align-items-center">
         <div class="col-auto">
           <label class="form-label small mb-0">View Type:</label>
         </div>
         <div class="col-auto">
-          <select class="form-select form-select-sm" v-model="currentViewType" @change="switchVisualization">
+          <select class="form-select form-select-sm glass" v-model="currentViewType" @change="switchVisualization">
             <option value="portfolio">Portfolio Distribution</option>
             <option value="performance">Performance Timeline</option>
             <option value="sectors">Sector Analysis</option>
           </select>
         </div>
         <div class="col-auto">
-          <button class="btn btn-sm btn-outline-primary" @click="resetCamera">
+          <button class="btn btn-sm btn-glass micro-bounce" @click="resetCamera">
             <i class="fas fa-sync-alt me-1"></i>
             Reset View
           </button>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="visualization-wrapper" ref="containerRef">
+    <div class="visualization-wrapper glass-card card-animated" ref="containerRef">
       <canvas ref="canvasRef" class="three-canvas"></canvas>
       
       <!-- Loading Overlay -->
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Info Panel -->
-      <div v-if="hoveredObject" class="info-panel" :style="infoPanelStyle">
+      <div v-if="hoveredObject" class="info-panel glass" :style="infoPanelStyle">
         <div class="info-content">
           <h6 class="mb-1">{{ hoveredObject.title }}</h6>
           <div class="small text-muted mb-2">{{ hoveredObject.category }}</div>
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Legend -->
-    <div class="legend-panel mt-3">
+    <div class="legend-panel glass rounded p-3 mt-3">
       <div class="row g-2">
         <div v-for="item in legendItems" :key="item.id" class="col-auto">
           <div class="legend-item d-flex align-items-center">

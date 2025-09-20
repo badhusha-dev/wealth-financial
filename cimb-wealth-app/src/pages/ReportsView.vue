@@ -5,7 +5,7 @@
       <div class="col-12">
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <h1 class="h2 mb-1">Financial Reports</h1>
+            <h1 class="h2 mb-1 gradient-text font-secondary">Financial Reports</h1>
             <p class="text-muted mb-0">Generate and export comprehensive financial reports</p>
           </div>
           <div class="text-end">
@@ -17,15 +17,17 @@
               <i class="fas fa-sync-alt" :class="{ 'fa-spin': reportsStore.loading }"></i>
               Refresh
             </button>
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-              <i class="fas fa-download"></i>
-              Export All
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" @click="exportAllReports('csv')"><i class="fas fa-file-csv me-2"></i>Export as CSV</a></li>
-              <li><a class="dropdown-item" href="#" @click="exportAllReports('pdf')"><i class="fas fa-file-pdf me-2"></i>Export as PDF</a></li>
-              <li><a class="dropdown-item" href="#" @click="exportAllReports('excel')"><i class="fas fa-file-excel me-2"></i>Export as Excel</a></li>
-            </ul>
+            <div class="export-buttons d-flex gap-2">
+              <button class="btn btn-glass micro-bounce" @click="exportAllReports('csv')" title="Export as CSV">
+                <i class="fas fa-file-csv me-2 text-success"></i>CSV
+              </button>
+              <button class="btn btn-glass micro-bounce" @click="exportAllReports('pdf')" title="Export as PDF">
+                <i class="fas fa-file-pdf me-2 text-danger"></i>PDF
+              </button>
+              <button class="btn btn-glass micro-bounce" @click="exportAllReports('excel')" title="Export as Excel">
+                <i class="fas fa-file-excel me-2 text-success"></i>Excel
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -34,12 +36,12 @@
     <!-- Report Filters -->
     <div class="row mb-4">
       <div class="col-12">
-        <div class="card">
+        <div class="card glass-card card-animated">
           <div class="card-body">
             <div class="row g-3 align-items-end">
               <div class="col-md-3">
                 <label class="form-label">Report Type</label>
-                <select class="form-select" v-model="selectedReportType" @change="filterReports">
+                <select class="form-select glass" v-model="selectedReportType" @change="filterReports">
                   <option value="">All Report Types</option>
                   <option v-for="type in reportTypes" :key="type" :value="type">
                     {{ formatReportType(type) }}
@@ -48,7 +50,7 @@
               </div>
               <div class="col-md-2">
                 <label class="form-label">Period</label>
-                <select class="form-select" v-model="selectedPeriod" @change="filterReports">
+                <select class="form-select glass" v-model="selectedPeriod" @change="filterReports">
                   <option value="">All Periods</option>
                   <option value="daily">Daily</option>
                   <option value="weekly">Weekly</option>
@@ -61,7 +63,7 @@
                 <label class="form-label">From Date</label>
                 <input 
                   type="date" 
-                  class="form-control" 
+                  class="form-control glass" 
                   v-model="startDate"
                   @change="filterReports"
                 >
@@ -70,7 +72,7 @@
                 <label class="form-label">To Date</label>
                 <input 
                   type="date" 
-                  class="form-control" 
+                  class="form-control glass" 
                   v-model="endDate"
                   @change="filterReports"
                 >

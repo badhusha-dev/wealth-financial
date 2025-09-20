@@ -5,7 +5,7 @@
       <div class="col-12">
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <h1 class="h2 mb-1">Portfolio Overview</h1>
+            <h1 class="h2 mb-1 gradient-text font-secondary">Portfolio Overview</h1>
             <p class="text-muted mb-0">Track and manage your investment portfolio</p>
           </div>
           <div class="text-end">
@@ -26,8 +26,8 @@
     <!-- Portfolio Summary Cards -->
     <div class="row mb-4">
       <div class="col-lg-3 col-md-6 mb-3">
-        <div class="card bg-primary text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce h-100" style="background: var(--gradient-primary);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <h6 class="card-title mb-1">Total Value</h6>
@@ -39,8 +39,8 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6 mb-3">
-        <div class="card h-100" :class="gainLossCardClass">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce h-100" :class="gainLossCardClass">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <h6 class="card-title mb-1">Total Gain/Loss</h6>
@@ -53,8 +53,8 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6 mb-3">
-        <div class="card bg-info text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce h-100" style="background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <h6 class="card-title mb-1">Total Holdings</h6>
@@ -67,8 +67,8 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6 mb-3">
-        <div class="card bg-secondary text-white h-100">
-          <div class="card-body">
+        <div class="card glass-card card-animated micro-bounce h-100" style="background: linear-gradient(135deg, #6c757d 0%, #495057 100%);">
+          <div class="card-body text-white">
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <h6 class="card-title mb-1">Sectors</h6>
@@ -86,9 +86,9 @@
     <div class="row">
       <!-- Sector Allocation Chart -->
       <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="card-title mb-0">Sector Allocation</h5>
+        <div class="card glass-card card-animated h-100">
+          <div class="card-header glass d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0 font-secondary">Sector Allocation</h5>
             <small class="text-muted">By Value</small>
           </div>
           <div class="card-body">
@@ -133,19 +133,23 @@
 
       <!-- Portfolio Holdings Table -->
       <div class="col-lg-8 mb-4">
-        <div class="card h-100">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="card-title mb-0">Holdings</h5>
-            <div class="d-flex align-items-center gap-2">
+        <div class="card glass-card card-animated h-100">
+          <div class="card-header glass d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0 font-secondary">Holdings</h5>
+            <div class="d-flex align-items-center gap-3">
+              <CompactToggle 
+                v-model="isCompactView" 
+                label="Compact"
+              />
               <input 
                 type="text" 
-                class="form-control form-control-sm" 
+                class="form-control form-control-sm glass" 
                 placeholder="Search holdings..." 
                 style="width: 200px;"
                 v-model="searchQuery"
                 @input="handleSearchChange"
               >
-              <select class="form-select form-select-sm" style="width: 150px;" v-model="selectedSector" @change="handleSectorChange">
+              <select class="form-select form-select-sm glass" style="width: 150px;" v-model="selectedSector" @change="handleSectorChange">
                 <option value="">All Sectors</option>
                 <option 
                   v-for="sector in portfolioStore.holdingsBySector" 
@@ -166,15 +170,12 @@
             <!-- AG-Grid Holdings Table -->
             <div class="ag-grid-container" style="height: 500px;">
               <AgGridVue
-                class="ag-theme-alpine"
+                class="ag-theme-alpine glass-grid"
                 :columnDefs="columnDefs"
                 :rowData="portfolioStore.userHoldings"
-                :defaultColDef="defaultColDef"
-                :animateRows="true"
+                :gridOptions="gridOptions"
                 :pagination="true"
-                :paginationPageSize="10"
-                :suppressCellFocus="true"
-                @grid-ready="onGridReady"
+                :paginationPageSize="isCompactView ? 15 : 10"
               >
               </AgGridVue>
             </div>
@@ -186,10 +187,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import { usePortfolioStore } from '@/stores/portfolio'
 import { Chart, type ChartConfiguration, registerables } from 'chart.js'
 import { AgGridVue } from 'ag-grid-vue3'
+import CompactToggle from '@/components/CompactToggle.vue'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
@@ -200,6 +202,7 @@ const portfolioStore = usePortfolioStore()
 // Table filtering
 const searchQuery = ref('')
 const selectedSector = ref('')
+const isCompactView = ref(false)
 
 // AG-Grid configuration
 let gridApi: any = null
@@ -297,6 +300,29 @@ const defaultColDef = {
   flex: 1,
   minWidth: 100
 }
+
+// Grid options
+const gridOptions = computed(() => ({
+  defaultColDef: defaultColDef,
+  rowHeight: isCompactView.value ? 32 : 48,
+  headerHeight: isCompactView.value ? 32 : 40,
+  animateRows: true,
+  suppressCellFocus: true,
+  rowSelection: 'single',
+  enableRangeSelection: false,
+  enableCellTextSelection: false,
+  suppressRowClickSelection: false,
+  onGridReady: onGridReady
+}))
+
+// Watch for compact mode changes
+watch(isCompactView, () => {
+  if (gridApi) {
+    gridApi.setRowHeight(isCompactView.value ? 32 : 48)
+    gridApi.setHeaderHeight(isCompactView.value ? 32 : 40)
+    gridApi.resetRowHeights()
+  }
+})
 
 // Chart
 const sectorChartCanvas = ref<HTMLCanvasElement>()
