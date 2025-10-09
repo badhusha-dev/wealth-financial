@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import unitTrustsData from '@/data/unit-trusts.json'
+import unitTrustCatalog from '@/data/unit-trust-catalog.json'
 
 interface UnitTrust {
   id: string
@@ -31,7 +32,8 @@ interface UnitTrust {
 }
 
 export const useUnitTrustsStore = defineStore('unitTrusts', () => {
-  const unitTrusts = ref<UnitTrust[]>(unitTrustsData as UnitTrust[])
+  const availableFunds = unitTrustCatalog
+  const unitTrusts = ref<UnitTrust[]>(JSON.parse(JSON.stringify(unitTrustsData)) as UnitTrust[])
   
   const totalValue = computed(() => 
     unitTrusts.value.reduce((sum, ut) => sum + ut.currentValue, 0)
@@ -104,23 +106,69 @@ export const useUnitTrustsStore = defineStore('unitTrusts', () => {
       existingUT.currentValue = totalUnits * existingUT.navPrice
       existingUT.unrealizedGain = existingUT.currentValue - (totalUnits * existingUT.averageCost)
       existingUT.unrealizedGainPercent = (existingUT.unrealizedGain / (totalUnits * existingUT.averageCost)) * 100
+    } else {
+      const fundTemplate = availableFunds.find(f => f.fundCode === fundCode)
+      
+      if (fundTemplate) {
+        const newUnits = amount / fundTemplate.navPrice
+        const newHolding: UnitTrust = {
+          ...fundTemplate,
+          id: 'ut' + Date.now(),
+          userId: 'user001',
+          units: newUnits,
+          averageCost: fundTemplate.navPrice,
+          currentValue: amount,
+          unrealizedGain: 0,
+          unrealizedGainPercent: 0,
+          purchaseDate: new Date().toISOString().split('T')[0],
+          lastUpdated: new Date().toISOString()
+        }
+        unitTrusts.value.push(newHolding)
+      } else {
+        console.error(`Fund ${fundCode} not found in available funds catalog.`)
+      }
     }
   }
   
   function sellUnitTrust(id: string, unitsToSell: number) {
     const ut = unitTrusts.value.find(u => u.id === id)
-    if (ut && unitsToSell <= ut.units) {
-      ut.units -= unitsToSell
-      ut.currentValue = ut.units * ut.navPrice
-      ut.unrealizedGain = ut.currentValue - (ut.units * ut.averageCost)
-      ut.unrealizedGainPercent = ut.units > 0 
-        ? (ut.unrealizedGain / (ut.units * ut.averageCost)) * 100 
-        : 0
+    if (!ut) {
+      console.error(`Fund ${id} not found in portfolio.`)
+      return
     }
+    if (unitsToSell > ut.units) {
+      console.error(`Insufficient units. Trying to sell ${unitsToSell} units but only have ${ut.units}`)
+      return
+    }
+    
+    ut.units -= unitsToSell
+    ut.currentValue = ut.units * ut.navPrice
+    ut.unrealizedGain = ut.currentValue - (ut.units * ut.averageCost)
+    ut.unrealizedGainPercent = ut.units > 0 
+      ? (ut.unrealizedGain / (ut.units * ut.averageCost)) * 100 
+      : 0
   }
   
   function switchUnitTrust(fromId: string, toFundCode: string, amount: number) {
-    sellUnitTrust(fromId, amount)
+    const fromUT = unitTrusts.value.find(ut => ut.id === fromId)
+    if (!fromUT) {
+      console.error(`Source fund ${fromId} not found`)
+      return
+    }
+    
+    const toFund = availableFunds.find(f => f.fundCode === toFundCode)
+    if (!toFund) {
+      console.error(`Destination fund ${toFundCode} not found in catalog`)
+      return
+    }
+    
+    const unitsToSwitch = amount / fromUT.navPrice
+    if (unitsToSwitch > fromUT.units) {
+      console.error(`Insufficient units. Trying to switch ${unitsToSwitch} units but only have ${fromUT.units}`)
+      return
+    }
+    
+    sellUnitTrust(fromId, unitsToSwitch)
     buyUnitTrust(toFundCode, amount)
   }
   
