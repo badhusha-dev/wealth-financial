@@ -107,8 +107,8 @@ const pageTitle = computed(() => {
   return routeTitles[route.path] || 'CIMB Wealth'
 })
 
-async function handleLogout() {
+function handleLogout() {
   authStore.logout()
-  await router.push('/login')
+  router.push('/login')
 }
 </script>
