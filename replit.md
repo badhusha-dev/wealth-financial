@@ -5,7 +5,7 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 
 ## Recent Changes
 
-### October 9, 2025 - UX/UI Improvements
+### October 9, 2025 - UX/UI Improvements & Bug Fixes
 - ✅ Fixed login page layout - removed sidebar/navbar from login view
 - ✅ Redesigned login page with modern split-screen layout (50/50 branding + form)
   - Left side: CIMB branding with gradient background and feature highlights
@@ -16,6 +16,8 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 - ✅ Enhanced 3D Visualization page with full ThreeVisualization component (replaced placeholder)
 - ✅ Cleaned up all debug console.log statements for production readiness
 - ✅ Verified responsive design works correctly on mobile, tablet, and desktop
+- ✅ Fixed logout functionality - removed async/await for immediate navigation
+- ✅ Verified all sidebar menu items have FontAwesome icons (already implemented)
 - ✅ All UX/UI fixes architect-approved with Pass rating
 
 ### September 20, 2025 - Initial Setup
