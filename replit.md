@@ -5,6 +5,23 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 
 ## Recent Changes
 
+### October 9, 2025 - Unit Trust Module Implementation
+- ✅ Created comprehensive unit trust management system with full buy/sell/switch functionality
+- ✅ Implemented separate immutable catalog (unit-trust-catalog.json) containing all available funds
+- ✅ Created user holdings data structure (unit-trusts.json) with equity, bond, balanced, and money market funds
+- ✅ Built dedicated Unit Trust page (UnitTrustsView.vue) with:
+  - Holdings portfolio display using AG-Grid
+  - Transaction history tracking
+  - Performance charts with Chart.js
+  - Buy/Sell/Switch modals with full validation
+- ✅ Created unit trust Pinia store with:
+  - buyUnitTrust: Creates new holdings from catalog when buying previously unheld funds
+  - sellUnitTrust: Comprehensive error handling for insufficient units and missing positions
+  - switchUnitTrust: Validates destination fund exists before executing, prevents broken states
+- ✅ Integrated unit trust transactions into main transaction history
+- ✅ Added "Unit Trusts" to navigation menu and router
+- ✅ All functionality architect-approved with Pass rating for production deployment
+
 ### October 9, 2025 - UX/UI Improvements & Bug Fixes
 - ✅ Fixed login page layout - removed sidebar/navbar from login view
 - ✅ Redesigned login page with modern split-screen layout (50/50 branding + form)
@@ -41,10 +58,11 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 1. **Authentication System** - Login/logout with route guards
 2. **Dashboard** - Financial overview with key metrics
 3. **Portfolio Management** - Holdings tracking with AG-Grid tables
-4. **Transaction History** - Comprehensive transaction tracking
-5. **Goal Setting** - Financial goal management
-6. **Reports** - Data export and analysis
-7. **3D Visualization** - Advanced Three.js 3D data visualization
+4. **Unit Trust Management** - Complete unit trust buy/sell/switch with catalog of available funds
+5. **Transaction History** - Comprehensive transaction tracking including unit trusts
+6. **Goal Setting** - Financial goal management
+7. **Reports** - Data export and analysis
+8. **3D Visualization** - Advanced Three.js 3D data visualization
 
 ### Libraries & Dependencies
 - **AG-Grid** for data tables
@@ -64,10 +82,17 @@ cimb-wealth-app/
 │   │   ├── AppLayout.vue
 │   │   ├── AppNavbar.vue
 │   │   └── AppSidebar.vue
-│   ├── data/ (JSON mock data)
-│   ├── pages/ (Vue page components)
+│   ├── data/
+│   │   ├── unit-trust-catalog.json (immutable catalog of available funds)
+│   │   ├── unit-trusts.json (user holdings)
+│   │   └── other JSON mock data
+│   ├── pages/
+│   │   ├── UnitTrustsView.vue
+│   │   └── other Vue page components
 │   ├── router/ (Vue Router configuration)
-│   ├── stores/ (Pinia stores)
+│   ├── stores/
+│   │   ├── unitTrusts.ts
+│   │   └── other Pinia stores
 │   └── assets/ (CSS and static assets)
 ├── public/
 └── Configuration files
