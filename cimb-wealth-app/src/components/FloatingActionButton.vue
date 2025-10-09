@@ -102,8 +102,6 @@ const handleAction = (action: FabAction) => {
     case 'portfolio-analysis':
       router.push('/3d-viz')
       break
-    default:
-      console.log('Unknown action:', action.action)
   }
 }
 

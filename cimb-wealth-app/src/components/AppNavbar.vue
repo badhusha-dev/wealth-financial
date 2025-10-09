@@ -70,13 +70,13 @@
               width="24" 
               height="24"
             >
-            <span class="d-none d-sm-inline">John Doe</span>
+            <span class="d-none d-sm-inline">{{ authStore.currentUser?.firstName }} {{ authStore.currentUser?.lastName }}</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            <li><a class="dropdown-item" href="#" @click.prevent="handleLogout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
           </ul>
         </div>
       </div>
@@ -86,11 +86,14 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useThemeStore } from '@/stores/theme'
+import { useAuthStore } from '@/stores/auth'
 
 const route = useRoute()
+const router = useRouter()
 const themeStore = useThemeStore()
+const authStore = useAuthStore()
 
 const pageTitle = computed(() => {
   const routeTitles: Record<string, string> = {
@@ -103,4 +106,9 @@ const pageTitle = computed(() => {
   }
   return routeTitles[route.path] || 'CIMB Wealth'
 })
+
+async function handleLogout() {
+  authStore.logout()
+  await router.push('/login')
+}
 </script>

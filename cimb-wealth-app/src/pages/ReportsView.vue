@@ -458,7 +458,6 @@ async function refreshReports() {
 }
 
 async function generateReport(report: any) {
-  console.log('Generating report:', report.title)
   // In the current store structure, we just refresh the report
   await reportsStore.loadReport()
 }
@@ -468,8 +467,6 @@ async function downloadReport(report: any, format: string) {
     await reportsStore.exportReportAsCSV()
   } else if (format === 'pdf') {
     await reportsStore.exportReportAsPDF()
-  } else {
-    console.log(`Export format ${format} not yet implemented`)
   }
 }
 
@@ -479,29 +476,23 @@ async function exportAllReports(format: string) {
     await reportsStore.exportReportAsCSV()
   } else if (format === 'pdf') {
     await reportsStore.exportReportAsPDF()
-  } else {
-    console.log(`Batch export format ${format} not yet implemented`)
   }
 }
 
 function viewReport(report: any) {
-  console.log('View report:', report.title)
   // Implementation for viewing report details
 }
 
 function editReport(report: any) {
-  console.log('Edit report:', report.title)
   // Implementation for editing report
 }
 
 function duplicateReport(report: any) {
-  console.log('Duplicate report:', report.title)
   // Implementation for duplicating report
 }
 
 function deleteReport(report: any) {
   if (confirm(`Are you sure you want to delete "${report.title}"?`)) {
-    console.log('Delete report:', report.title)
     // Implementation for deleting report
   }
 }

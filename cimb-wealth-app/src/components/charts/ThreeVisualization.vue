@@ -461,7 +461,6 @@ function onMouseMove(event: MouseEvent) {
 
 function onMouseClick(event: MouseEvent) {
   if (hoveredObject.value) {
-    console.log('Clicked on:', hoveredObject.value.title)
     // Add click interactions here
   }
 }

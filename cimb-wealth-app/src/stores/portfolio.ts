@@ -134,8 +134,6 @@ export const usePortfolioStore = defineStore('portfolio', () => {
       holding.unrealizedGain = holding.totalValue - (holding.quantity * holding.averagePrice)
       holding.unrealizedGainPercent = ((holding.currentPrice - holding.averagePrice) / holding.averagePrice) * 100
       holding.lastUpdated = new Date().toISOString()
-      
-      console.log(`Updated ${holding.ticker}: ${oldValue} -> ${holding.totalValue}`)
     }
   }
 
