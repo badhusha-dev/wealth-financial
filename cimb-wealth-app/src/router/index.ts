@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DashboardView from '../pages/DashboardView.vue'
 import LoginView from '../pages/LoginView.vue'
 import PortfolioView from '../pages/PortfolioView.vue'
+import UnitTrustsView from '../pages/UnitTrustsView.vue'
 import TransactionsView from '../pages/TransactionsView.vue'
 import GoalsView from '../pages/GoalsView.vue'
 import ReportsView from '../pages/ReportsView.vue'
@@ -29,6 +30,13 @@ const router = createRouter({
       path: '/portfolio',
       name: 'portfolio',
       component: PortfolioView,
+      beforeEnter: requireAuth,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/unit-trusts',
+      name: 'unit-trusts',
+      component: UnitTrustsView,
       beforeEnter: requireAuth,
       meta: { requiresAuth: true }
     },

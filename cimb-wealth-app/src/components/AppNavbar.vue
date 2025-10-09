@@ -99,6 +99,7 @@ const pageTitle = computed(() => {
   const routeTitles: Record<string, string> = {
     '/': 'Dashboard',
     '/portfolio': 'Portfolio',
+    '/unit-trusts': 'Unit Trusts',
     '/transactions': 'Transactions', 
     '/goals': 'Financial Goals',
     '/reports': 'Reports',

@@ -26,6 +26,19 @@
     "status": "completed"
   },
   {
+    "id": "txn002a",
+    "userId": "user001",
+    "date": "2024-09-18",
+    "description": "Buy - CIMB Technology Fund (CIMBTEC)",
+    "category": "Unit Trust Purchase",
+    "type": "debit",
+    "amount": -9975.00,
+    "balance": 265724.75,
+    "currency": "MYR",
+    "reference": "BUY-UT-CIMBTEC-3500-UNITS",
+    "status": "completed"
+  },
+  {
     "id": "txn003",
     "userId": "user001",
     "date": "2024-09-17",
@@ -65,6 +78,19 @@
     "status": "completed"
   },
   {
+    "id": "txn005a",
+    "userId": "user001",
+    "date": "2024-09-15",
+    "description": "Distribution - CIMB Dividend Income Fund",
+    "category": "Unit Trust Distribution",
+    "type": "credit",
+    "amount": 186.30,
+    "balance": 282880.80,
+    "currency": "MYR",
+    "reference": "DIST-UT-CIMBDIV-Q3-2024",
+    "status": "completed"
+  },
+  {
     "id": "txn006",
     "userId": "user001",
     "date": "2024-09-14",
@@ -75,6 +101,19 @@
     "balance": 287012.00,
     "currency": "MYR",
     "reference": "BUY-CIMB-1500-SHARES",
+    "status": "completed"
+  },
+  {
+    "id": "txn006a",
+    "userId": "user001",
+    "date": "2024-09-10",
+    "description": "Switch - From CIMB Equity Growth to Asia Growth Fund",
+    "category": "Unit Trust Switch",
+    "type": "neutral",
+    "amount": 0.00,
+    "balance": 287012.00,
+    "currency": "MYR",
+    "reference": "SWITCH-UT-CIMBEG-TO-CIMBAG",
     "status": "completed"
   },
   {

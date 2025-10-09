@@ -41,6 +41,7 @@ const route = useRoute()
 const navigationItems = [
   { name: 'Dashboard', path: '/', icon: 'fas fa-chart-line' },
   { name: 'Portfolio', path: '/portfolio', icon: 'fas fa-briefcase' },
+  { name: 'Unit Trusts', path: '/unit-trusts', icon: 'fas fa-chart-pie' },
   { name: 'Transactions', path: '/transactions', icon: 'fas fa-exchange-alt' },
   { name: 'Goals', path: '/goals', icon: 'fas fa-target' },
   { name: 'Reports', path: '/reports', icon: 'fas fa-file-alt' },
