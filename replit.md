@@ -5,6 +5,24 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 
 ## Recent Changes
 
+### October 10, 2025 - UI & Navigation Improvements
+- ✅ Fixed navbar profile dropdown - replaced native Bootstrap with BootstrapVue3 BDropdown
+- ✅ Implemented working dropdown menu with View Profile, Settings, Logout options
+- ✅ Enhanced logout functionality with localStorage clear and back-button prevention
+- ✅ Created ProfileView and SettingsView pages with user information display
+- ✅ Updated all sidebar icons to professional FontAwesome icons:
+  - Dashboard: th-large, Portfolio: briefcase, Unit Trusts: layer-group
+  - Bond Market: landmark, My Bonds: wallet, Bond Analytics: chart-line
+  - Bond Reports: file-contract, Transactions: exchange-alt
+  - Goals: bullseye, Reports: chart-bar, 3D Viz: cube
+- ✅ Polished sidebar UI with:
+  - Smooth hover animations with translateX effect
+  - CIMB red active state with white indicator bar
+  - Proper light/dark mode support
+  - Mobile-responsive sidebar with overlay
+- ✅ All navigation working correctly with proper routing
+- ✅ Professional fintech UI maintained with CIMB branding
+
 ### October 10, 2025 - Global Layout & UI Improvements
 - ✅ Fixed squeezed content issue - removed conflicting layout rules in main.css
 - ✅ Created comprehensive spacing system with CSS variables:

@@ -47,6 +47,9 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       loginError.value = ''
       
+      // Remove logout popstate listener if it exists
+      cleanupLogout()
+      
       // Simulate API delay
       await new Promise(resolve => setTimeout(resolve, 1000))
       
@@ -135,6 +138,8 @@ export const useAuthStore = defineStore('auth', () => {
       try {
         currentUser.value = JSON.parse(userData)
         isAuthenticated.value = true
+        // Remove any lingering logout listeners
+        cleanupLogout()
       } catch (error) {
         console.error('Error parsing stored user data:', error)
         logout()
