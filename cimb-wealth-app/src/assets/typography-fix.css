@@ -1,0 +1,400 @@
+/* CIMB Wealth App - Global Typography Fix for Text Visibility */
+
+/* ===== GLOBAL TEXT COLORS ===== */
+
+/* Light Mode - Default readable text */
+:root {
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-light: #f5f5f5;
+  --text-white: #ffffff;
+  --cimb-red: #dc143c;
+  --cimb-red-bright: #ff1744;
+}
+
+/* Dark Mode - Readable text colors */
+[data-theme="dark"] {
+  --text-primary: #f5f5f5;
+  --text-secondary: #e0e0e0;
+  --text-light: #1a1a1a;
+}
+
+/* ===== BASE TYPOGRAPHY ===== */
+
+body {
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Override any inherited transparent or invisible colors */
+* {
+  color: inherit;
+}
+
+/* ===== HEADINGS ===== */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Poppins', 'Inter', sans-serif !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+h1, .h1 { font-size: 2.25rem; }
+h2, .h2 { font-size: 1.875rem; }
+h3, .h3 { font-size: 1.5rem; }
+h4, .h4 { font-size: 1.25rem; }
+h5, .h5 { font-size: 1.125rem; }
+h6, .h6 { font-size: 1rem; }
+
+/* ===== CARDS ===== */
+
+.card {
+  color: var(--text-primary) !important;
+}
+
+.card-title {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.card-subtitle {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+}
+
+.card-header {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar {
+  color: var(--text-white) !important;
+}
+
+.sidebar .nav-link {
+  color: var(--text-white) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+  color: var(--text-white) !important;
+  background: rgba(220, 20, 60, 0.15) !important;
+}
+
+.sidebar .nav-link.active {
+  color: var(--text-white) !important;
+  background: var(--cimb-red-bright) !important;
+  font-weight: 600;
+}
+
+.sidebar .nav-link i {
+  color: var(--text-white) !important;
+}
+
+.sidebar-brand,
+.sidebar-title,
+.sidebar h1, .sidebar h2, .sidebar h3, 
+.sidebar h4, .sidebar h5, .sidebar h6 {
+  color: var(--text-white) !important;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+  color: var(--text-primary) !important;
+}
+
+.navbar .nav-link {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+}
+
+.navbar .navbar-brand {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+.navbar-text {
+  color: var(--text-primary) !important;
+}
+
+/* ===== TEXT UTILITIES ===== */
+
+.text-muted {
+  color: var(--text-secondary) !important;
+  opacity: 0.85;
+}
+
+.text-light {
+  color: var(--text-light) !important;
+}
+
+.text-dark {
+  color: var(--text-primary) !important;
+}
+
+.text-white {
+  color: var(--text-white) !important;
+}
+
+/* ===== LABELS & SMALL TEXT ===== */
+
+label {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+small, .small {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+}
+
+/* ===== LISTS ===== */
+
+ul, ol {
+  color: var(--text-primary) !important;
+}
+
+li {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+}
+
+/* ===== PARAGRAPHS ===== */
+
+p {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* ===== LINKS ===== */
+
+a {
+  color: var(--cimb-red);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--cimb-red-bright);
+  text-decoration: none;
+}
+
+/* ===== BADGES & PILLS ===== */
+
+.badge {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ===== TABLES ===== */
+
+.table {
+  color: var(--text-primary) !important;
+}
+
+.table th {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+.table td {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+}
+
+/* ===== FORM CONTROLS ===== */
+
+.form-control,
+.form-select,
+.form-label {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn {
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-primary {
+  color: var(--text-white) !important;
+}
+
+/* ===== DASHBOARD WIDGETS ===== */
+
+.stat-card,
+.dashboard-card,
+.metric-card {
+  color: var(--text-primary) !important;
+}
+
+.stat-value,
+.metric-value {
+  color: var(--text-primary) !important;
+  font-weight: 700;
+}
+
+.stat-label,
+.metric-label {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* ===== MODALS ===== */
+
+.modal-title {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+.modal-body {
+  color: var(--text-primary) !important;
+}
+
+/* ===== DROPDOWNS ===== */
+
+.dropdown-item {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+}
+
+.dropdown-item:hover {
+  color: var(--text-primary) !important;
+}
+
+/* ===== ALERTS ===== */
+
+.alert {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+}
+
+/* ===== BREADCRUMBS ===== */
+
+.breadcrumb-item {
+  color: var(--text-secondary) !important;
+}
+
+.breadcrumb-item.active {
+  color: var(--text-primary) !important;
+}
+
+/* ===== TABS ===== */
+
+.nav-tabs .nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+/* ===== FIX LOW CONTRAST ISSUES ===== */
+
+/* Remove any rgba with low opacity that causes invisibility */
+[style*="color: rgba(0, 0, 0, 0.3)"],
+[style*="color: rgba(0, 0, 0, 0.4)"],
+[style*="color: rgba(0, 0, 0, 0.5)"] {
+  color: var(--text-primary) !important;
+}
+
+/* Fix any transparent text */
+[style*="opacity: 0"],
+[style*="opacity: 0.1"],
+[style*="opacity: 0.2"] {
+  opacity: 1 !important;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  h1, .h1 { font-size: 1.875rem; }
+  h2, .h2 { font-size: 1.5rem; }
+  h3, .h3 { font-size: 1.25rem; }
+}
+
+/* ===== DARK MODE SPECIFIC OVERRIDES ===== */
+
+[data-theme="dark"] .card {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .navbar {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .table {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-control {
+  color: var(--text-primary) !important;
+}
+
+/* ===== PROFESSIONAL CIMB CORPORATE FEEL ===== */
+
+/* Clean, readable spacing */
+.container, .container-fluid {
+  letter-spacing: 0.3px;
+}
+
+/* Professional number formatting */
+.currency, .percentage, .number {
+  font-family: 'Inter', monospace;
+  font-weight: 600;
+  color: var(--text-primary) !important;
+}
+
+/* Status indicators */
+.status-positive {
+  color: #10b981 !important;
+  font-weight: 600;
+}
+
+.status-negative {
+  color: #ef4444 !important;
+  font-weight: 600;
+}
+
+.status-neutral {
+  color: var(--text-secondary) !important;
+  font-weight: 600;
+}

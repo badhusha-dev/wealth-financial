@@ -16,6 +16,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import './assets/main.css'
 import './assets/theme.css'
 import './assets/theme-enhanced.css'
+import './assets/typography-fix.css'
 
 const app = createApp(App)
 
