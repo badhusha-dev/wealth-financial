@@ -7,6 +7,8 @@ import TransactionsView from '../pages/TransactionsView.vue'
 import GoalsView from '../pages/GoalsView.vue'
 import ReportsView from '../pages/ReportsView.vue'
 import ThreeDVizView from '../pages/3DVizView.vue'
+import ProfileView from '../pages/ProfileView.vue'
+import SettingsView from '../pages/SettingsView.vue'
 import BondsMarketView from '../pages/bonds/BondsMarketView.vue'
 import MyBondsView from '../pages/bonds/MyBondsView.vue'
 import BondsAnalyticsView from '../pages/bonds/BondsAnalyticsView.vue'
@@ -97,6 +99,20 @@ const router = createRouter({
       path: '/3d-viz',
       name: '3d-viz',
       component: ThreeDVizView,
+      beforeEnter: requireAuth,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
+      beforeEnter: requireAuth,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: SettingsView,
       beforeEnter: requireAuth,
       meta: { requiresAuth: true }
     }
