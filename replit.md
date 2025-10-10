@@ -5,11 +5,19 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 
 ## Recent Changes
 
-### October 10, 2025 - Dark Mode Text Visibility Fix
+### October 10, 2025 - Comprehensive Typography & Text Visibility Overhaul
 - ✅ Fixed critical dark mode bug where text was invisible
 - ✅ Resolved conflicting CSS: replaced `@media (prefers-color-scheme: dark)` with `[data-theme="dark"]` in base.css
-- ✅ Ensured theme toggle controls dark mode properly (not system preferences)
-- ✅ Verified all components use CSS variables that adapt correctly to theme changes
+- ✅ Created comprehensive typography-fix.css with global text visibility improvements:
+  - Light mode: #1a1a1a text on light backgrounds
+  - Dark mode: #f5f5f5 text on dark backgrounds
+  - Font-weight: 500 for improved readability
+  - Applied Inter/Poppins font family consistently
+- ✅ Fixed all headings (h1-h6), card titles, and card text with readable colors
+- ✅ Sidebar: solid white text (#ffffff) with bright CIMB red (#ff1744) active states
+- ✅ Navbar: proper text color inheritance from theme variables
+- ✅ Removed all low-contrast rgba colors and opacity issues
+- ✅ Added professional CIMB corporate styling with clean spacing and typography
 - ✅ Text now properly visible in both light and dark modes across all pages
 
 ### October 9, 2025 - Unit Trust Module Implementation
