@@ -3,7 +3,7 @@
     <div class="p-3 border-bottom">
       <div class="d-flex align-items-center">
         <img v-if="!themeStore.sidebarCollapsed" src="/favicon.ico" alt="CIMB" class="me-2" width="32" height="32">
-        <div v-if="!themeStore.sidebarCollapsed" class="fw-bold text-primary">CIMB Wealth</div>
+        <div v-if="!themeStore.sidebarCollapsed" class="fw-bold text-white sidebar-brand">CIMB Wealth</div>
       </div>
     </div>
     
