@@ -6,7 +6,7 @@
       :class="{ 'sidebar-collapsed': themeStore.sidebarCollapsed }"
     >
       <AppNavbar />
-      <main class="p-4">
+      <main class="page-content">
         <router-view v-slot="{ Component, route }">
           <transition
             name="page"

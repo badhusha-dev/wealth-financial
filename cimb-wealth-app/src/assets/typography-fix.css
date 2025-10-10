@@ -80,39 +80,86 @@ h6, .h6 { font-size: 1rem; }
   font-weight: 600;
 }
 
-/* ===== SIDEBAR ===== */
+/* ===== SIDEBAR - LIGHT & DARK MODE FIX ===== */
 
-.sidebar {
+/* Sidebar in Dark Mode - White text */
+[data-theme="dark"] .sidebar {
   color: var(--text-white) !important;
 }
 
-.sidebar .nav-link {
+[data-theme="dark"] .sidebar .nav-link {
   color: var(--text-white) !important;
   font-weight: 500;
   font-size: 0.95rem;
   transition: all 0.2s ease;
 }
 
-.sidebar .nav-link:hover {
+[data-theme="dark"] .sidebar .nav-link:hover {
   color: var(--text-white) !important;
   background: rgba(220, 20, 60, 0.15) !important;
 }
 
-.sidebar .nav-link.active {
+[data-theme="dark"] .sidebar .nav-link.active {
   color: var(--text-white) !important;
   background: var(--cimb-red-bright) !important;
   font-weight: 600;
 }
 
-.sidebar .nav-link i {
+[data-theme="dark"] .sidebar .nav-link i {
   color: var(--text-white) !important;
 }
 
-.sidebar-brand,
-.sidebar-title,
-.sidebar h1, .sidebar h2, .sidebar h3, 
-.sidebar h4, .sidebar h5, .sidebar h6 {
+[data-theme="dark"] .sidebar-brand,
+[data-theme="dark"] .sidebar-title,
+[data-theme="dark"] .sidebar h1, 
+[data-theme="dark"] .sidebar h2, 
+[data-theme="dark"] .sidebar h3, 
+[data-theme="dark"] .sidebar h4, 
+[data-theme="dark"] .sidebar h5, 
+[data-theme="dark"] .sidebar h6 {
   color: var(--text-white) !important;
+}
+
+/* Sidebar in Light Mode - Dark grey text for readability */
+:root .sidebar {
+  color: #2d3748 !important;
+}
+
+:root .sidebar .nav-link {
+  color: #2d3748 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+:root .sidebar .nav-link:hover {
+  color: #1a202c !important;
+  background: rgba(220, 20, 60, 0.1) !important;
+}
+
+:root .sidebar .nav-link.active {
+  color: #ffffff !important;
+  background: var(--cimb-red-bright) !important;
+  font-weight: 600;
+}
+
+:root .sidebar .nav-link i {
+  color: #2d3748 !important;
+}
+
+:root .sidebar .nav-link.active i {
+  color: #ffffff !important;
+}
+
+:root .sidebar-brand,
+:root .sidebar-title,
+:root .sidebar h1, 
+:root .sidebar h2, 
+:root .sidebar h3, 
+:root .sidebar h4, 
+:root .sidebar h5, 
+:root .sidebar h6 {
+  color: #1a202c !important;
 }
 
 /* ===== NAVBAR ===== */
