@@ -5,6 +5,35 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 
 ## Recent Changes
 
+### October 10, 2025 - Global Layout & UI Improvements
+- ✅ Fixed squeezed content issue - removed conflicting layout rules in main.css
+- ✅ Created comprehensive spacing system with CSS variables:
+  - --spacing-xs to --spacing-3xl for consistent spacing
+  - --container-max-width: 1600px with centered layout
+  - Responsive padding and gap utilities
+- ✅ Fixed critical sidebar text visibility in light mode:
+  - Dark grey text (#2d3748) for readability in light mode
+  - White text for dark mode
+  - Proper active state with white text on CIMB red background
+- ✅ Implemented modern responsive grid system:
+  - Auto-fit minmax grid for fluid layouts
+  - Stats grid for dashboard cards
+  - Mobile-first responsive breakpoints
+- ✅ Enhanced AppLayout structure:
+  - Replaced p-4 with page-content class for proper spacing
+  - Container max-width system (1600px)
+  - No horizontal scroll enforcement
+- ✅ Added typography improvements:
+  - Inter/Poppins fonts with better readability
+  - Base font-size: 15px
+  - Proper line-height and font-weight
+- ✅ Created layout-improvements.css with:
+  - Professional spacing utilities
+  - Responsive container system
+  - Modern grid layouts
+  - Mobile-responsive adjustments
+- ✅ All improvements maintain CIMB red branding and professional fintech UI
+
 ### October 10, 2025 - Complete Bond Trading Module Implementation
 - ✅ Created comprehensive bond trading system with market explorer, portfolio management, and analytics
 - ✅ Implemented bond market data catalog (bonds-market.json) with 28 bonds:
