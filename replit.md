@@ -5,6 +5,45 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 
 ## Recent Changes
 
+### October 10, 2025 - Complete Bond Trading Module Implementation
+- ✅ Created comprehensive bond trading system with market explorer, portfolio management, and analytics
+- ✅ Implemented bond market data catalog (bonds-market.json) with 28 bonds:
+  - Government bonds (Malaysian Government Securities) across various maturities
+  - Corporate bonds from banking, telecom, energy, real estate, and utility sectors
+  - Credit ratings from AAA to BBB with appropriate yield spreads
+  - Risk levels from Very Low to High with corresponding pricing
+- ✅ Created user bonds portfolio data (user-bonds.json) with 5 initial holdings
+- ✅ Built comprehensive bonds Pinia store (stores/bonds.ts) with:
+  - Buy/sell bond operations with commission calculations (0.5%)
+  - Financial calculations: YTM (Yield to Maturity), Macaulay Duration, Modified Duration, Convexity
+  - Portfolio analytics: total value, unrealized gains, portfolio yield, allocation by type/rating
+  - Coupon payment tracking with next payment date calculations
+- ✅ Created Bond Market Explorer page (BondsMarketView.vue):
+  - AG-Grid table with 28+ bonds showing ISIN, issuer, type, rating, coupon, price, yield
+  - Advanced filters: bond type, rating, risk level, sector
+  - Color-coded ratings and bond types for quick identification
+  - Buy bond functionality with modal
+- ✅ Created My Bonds Portfolio page (MyBondsView.vue):
+  - Portfolio summary cards: total value, investment, unrealized gains, portfolio yield
+  - Holdings table with gain/loss tracking, coupon dates, and sell functionality
+  - Chart.js allocation charts by bond type and rating
+  - Sell bond modal with profit/loss calculations
+- ✅ Created Bond Analytics page (BondsAnalyticsView.vue):
+  - Bond calculator with YTM, Macaulay Duration, Modified Duration, Convexity metrics
+  - Educational tooltips explaining each metric
+  - Risk vs Return scatter plot chart
+  - Time to Maturity bar chart for portfolio
+  - Government Bond Yield Curve visualization
+- ✅ Created Bond Reports page (BondsReportsView.vue):
+  - Portfolio Summary CSV export with holdings and performance
+  - Coupon Payment Calendar CSV export with payment schedules
+  - Bond Analytics Report CSV export with all metrics
+  - Export history tracking
+- ✅ Updated router with 4 bond routes: market, my-bonds, analytics, reports
+- ✅ Updated sidebar navigation with Bond Market, My Bonds, Bond Analytics, Bond Reports menu items
+- ✅ All bond calculations use Malaysian Ringgit (MYR) currency
+- ✅ Professional financial UI with CIMB red branding (#dc143c, #ff1744)
+
 ### October 10, 2025 - Comprehensive Typography & Text Visibility Overhaul
 - ✅ Fixed critical dark mode bug where text was invisible
 - ✅ Resolved conflicting CSS: replaced `@media (prefers-color-scheme: dark)` with `[data-theme="dark"]` in base.css
@@ -74,10 +113,11 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 2. **Dashboard** - Financial overview with key metrics
 3. **Portfolio Management** - Holdings tracking with AG-Grid tables
 4. **Unit Trust Management** - Complete unit trust buy/sell/switch with catalog of available funds
-5. **Transaction History** - Comprehensive transaction tracking including unit trusts
-6. **Goal Setting** - Financial goal management
-7. **Reports** - Data export and analysis
-8. **3D Visualization** - Advanced Three.js 3D data visualization
+5. **Bond Trading Module** - Complete bond market explorer, portfolio management, analytics with YTM/Duration/Convexity calculations, and CSV reports
+6. **Transaction History** - Comprehensive transaction tracking including unit trusts and bonds
+7. **Goal Setting** - Financial goal management
+8. **Reports** - Data export and analysis
+9. **3D Visualization** - Advanced Three.js 3D data visualization
 
 ### Libraries & Dependencies
 - **AG-Grid** for data tables
@@ -100,12 +140,23 @@ cimb-wealth-app/
 │   ├── data/
 │   │   ├── unit-trust-catalog.json (immutable catalog of available funds)
 │   │   ├── unit-trusts.json (user holdings)
+│   │   ├── bonds-market.json (immutable catalog of available bonds - 28 bonds)
+│   │   ├── user-bonds.json (user bond holdings)
 │   │   └── other JSON mock data
 │   ├── pages/
+│   │   ├── bonds/
+│   │   │   ├── BondsMarketView.vue
+│   │   │   ├── MyBondsView.vue
+│   │   │   ├── BondsAnalyticsView.vue
+│   │   │   ├── BondsReportsView.vue
+│   │   │   └── components/
+│   │   │       ├── BuyBondModal.vue
+│   │   │       └── SellBondModal.vue
 │   │   ├── UnitTrustsView.vue
 │   │   └── other Vue page components
 │   ├── router/ (Vue Router configuration)
 │   ├── stores/
+│   │   ├── bonds.ts (bond trading and analytics)
 │   │   ├── unitTrusts.ts
 │   │   └── other Pinia stores
 │   └── assets/ (CSS and static assets)
