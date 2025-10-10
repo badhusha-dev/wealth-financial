@@ -16,6 +16,8 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 - ✅ Built comprehensive bonds Pinia store (stores/bonds.ts) with:
   - Buy/sell bond operations with commission calculations (0.5%)
   - Financial calculations: YTM (Yield to Maturity), Macaulay Duration, Modified Duration, Convexity
+    - Note: Uses simplified approximation formulas suitable for demonstration purposes
+    - For production deployment, would require Newton-Raphson root-finding for YTM and precise cash-flow modeling
   - Portfolio analytics: total value, unrealized gains, portfolio yield, allocation by type/rating
   - Coupon payment tracking with next payment date calculations
 - ✅ Created Bond Market Explorer page (BondsMarketView.vue):
