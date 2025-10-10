@@ -1,0 +1,62 @@
+[
+  {
+    "id": "user-bond-001",
+    "bondId": "bond-001",
+    "userId": "user001",
+    "quantity": 100,
+    "purchasePrice": 1018.00,
+    "purchaseDate": "2023-01-15",
+    "totalInvestment": 101800,
+    "nextCouponDate": "2024-04-15",
+    "accruedInterest": 580.50,
+    "lastUpdated": "2024-10-10"
+  },
+  {
+    "id": "user-bond-002",
+    "bondId": "bond-003",
+    "userId": "user001",
+    "quantity": 50,
+    "purchasePrice": 1010.00,
+    "purchaseDate": "2023-06-20",
+    "totalInvestment": 50500,
+    "nextCouponDate": "2024-12-15",
+    "accruedInterest": 312.50,
+    "lastUpdated": "2024-10-10"
+  },
+  {
+    "id": "user-bond-003",
+    "bondId": "bond-006",
+    "userId": "user001",
+    "quantity": 75,
+    "purchasePrice": 1015.50,
+    "purchaseDate": "2022-12-05",
+    "totalInvestment": 76162.50,
+    "nextCouponDate": "2024-12-01",
+    "accruedInterest": 492.19,
+    "lastUpdated": "2024-10-10"
+  },
+  {
+    "id": "user-bond-004",
+    "bondId": "bond-004",
+    "userId": "user001",
+    "quantity": 60,
+    "purchasePrice": 1005.00,
+    "purchaseDate": "2023-03-10",
+    "totalInvestment": 60300,
+    "nextCouponDate": "2024-11-20",
+    "accruedInterest": 356.25,
+    "lastUpdated": "2024-10-10"
+  },
+  {
+    "id": "user-bond-005",
+    "bondId": "bond-010",
+    "userId": "user001",
+    "quantity": 40,
+    "purchasePrice": 1012.00,
+    "purchaseDate": "2023-08-25",
+    "totalInvestment": 40480,
+    "nextCouponDate": "2024-10-30",
+    "accruedInterest": 255.00,
+    "lastUpdated": "2024-10-10"
+  }
+]

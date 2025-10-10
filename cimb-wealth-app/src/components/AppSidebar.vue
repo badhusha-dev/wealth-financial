@@ -42,6 +42,14 @@ const navigationItems = [
   { name: 'Dashboard', path: '/', icon: 'fas fa-chart-line' },
   { name: 'Portfolio', path: '/portfolio', icon: 'fas fa-briefcase' },
   { name: 'Unit Trusts', path: '/unit-trusts', icon: 'fas fa-chart-pie' },
+  { name: 'Bonds', path: '/bonds/market', icon: 'fas fa-certificate', 
+    submenu: [
+      { name: 'Bond Market', path: '/bonds/market', icon: 'fas fa-shopping-cart' },
+      { name: 'My Bonds', path: '/bonds/my-bonds', icon: 'fas fa-wallet' },
+      { name: 'Analytics', path: '/bonds/analytics', icon: 'fas fa-calculator' },
+      { name: 'Reports', path: '/bonds/reports', icon: 'fas fa-file-download' }
+    ]
+  },
   { name: 'Transactions', path: '/transactions', icon: 'fas fa-exchange-alt' },
   { name: 'Goals', path: '/goals', icon: 'fas fa-target' },
   { name: 'Reports', path: '/reports', icon: 'fas fa-file-alt' },

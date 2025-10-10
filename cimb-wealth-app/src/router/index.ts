@@ -7,6 +7,10 @@ import TransactionsView from '../pages/TransactionsView.vue'
 import GoalsView from '../pages/GoalsView.vue'
 import ReportsView from '../pages/ReportsView.vue'
 import ThreeDVizView from '../pages/3DVizView.vue'
+import BondsMarketView from '../pages/bonds/BondsMarketView.vue'
+import MyBondsView from '../pages/bonds/MyBondsView.vue'
+import BondsAnalyticsView from '../pages/bonds/BondsAnalyticsView.vue'
+import BondsReportsView from '../pages/bonds/BondsReportsView.vue'
 import { requireAuth, redirectIfAuthenticated } from './guards'
 
 const router = createRouter({
@@ -37,6 +41,34 @@ const router = createRouter({
       path: '/unit-trusts',
       name: 'unit-trusts',
       component: UnitTrustsView,
+      beforeEnter: requireAuth,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/bonds/market',
+      name: 'bonds-market',
+      component: BondsMarketView,
+      beforeEnter: requireAuth,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/bonds/my-bonds',
+      name: 'my-bonds',
+      component: MyBondsView,
+      beforeEnter: requireAuth,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/bonds/analytics',
+      name: 'bonds-analytics',
+      component: BondsAnalyticsView,
+      beforeEnter: requireAuth,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/bonds/reports',
+      name: 'bonds-reports',
+      component: BondsReportsView,
       beforeEnter: requireAuth,
       meta: { requiresAuth: true }
     },

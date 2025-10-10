@@ -1,0 +1,81 @@
+You are a senior full-stack fintech engineer. Complete the entire **Bond Module** in my CIMB Wealth Management Vue 3 app. Integrate it fully with the existing dashboard layout and visual theme.
+
+✅ Tech Stack
+- Vue 3 (Composition API), Pinia, Vue Router
+- BootstrapVue 3 + modern CIMB red theme
+- AG-Grid for bond tables
+- Chart.js for analytics
+- Dummy data JSON for bond market & user bonds
+
+✅ Create These Bond Module Pages
+1. **/bonds/market** – Bond Market Explorer
+   - Show government + corporate bonds
+   - Columns: Name, ISIN, Bond Type, Rating, Coupon %, Price, Yield %, Maturity Date, Risk Level
+   - Filters: Rating, Risk, Coupon %, Issuer
+   - Sortable with AG-Grid
+
+2. **/bonds/my-bonds** – User Bond Portfolio
+   - List user-owned bonds
+   - Show accrued interest, next coupon date, investment value, performance %
+   - Bond allocation donut chart
+
+3. **/bonds/:id** – Bond Detail Page
+   - Bond fundamentals
+   - Historical price chart
+   - Yield curve mini graph
+   - Risk indicators
+   - Download term sheet button
+
+4. **Buy/Sell Bond Modal**
+   - Simulated order form
+   - Total cost = quantity × clean price
+   - Add success toast + portfolio update
+
+5. **/bonds/analytics**
+   - Calculate:
+     - YTM (Yield to Maturity)
+     - Macaulay Duration
+     - Modified Duration
+     - Convexity
+   - Risk vs Return scatter chart
+   - Time to maturity bar chart
+
+6. **/bonds/reports**
+   - Download:
+     - Portfolio Summary (CSV)
+     - Coupon Payment Calendar (CSV)
+     - Bond Holdings Report (PDF optional placeholder)
+
+✅ Data Requirements
+- Use **mock data** in /src/data/bonds.json
+- Include:
+  - At least 25 mock bonds
+  - Mix of AAA, AA, A, BBB ratings
+  - MYR currency format
+  - Government + Corporate bonds
+  - Fields: isin, issuer, sector, couponRate, price, yield, maturityDate, riskLevel
+
+✅ State Management
+- Create Pinia store: **useBondStore**
+  - Actions: getMarketBonds(), getUserBonds(), buyBond(), sellBond()
+  - Persist using localStorage
+
+✅ UI/UX Requirements
+- Clean CIMB Professional Red theme
+- Responsive layout (mobile/tablet/web)
+- Smooth hover effects
+- Professional data tables
+- Elegant chart tooltips
+- Fix spacing, layout, and text visibility issues
+- Modern card and dashboard grid
+
+✅ Deliverables
+- Full folder: `/src/modules/bonds/`
+- Vue pages + components
+- Dummy data JSON
+- Pinia store
+- Router integration
+- Type-safe interfaces
+- Clean code structure
+
+After implementing, RUN and TEST the module. Ensure UI/UX looks premium and consistent with a real bank-grade investment app.
