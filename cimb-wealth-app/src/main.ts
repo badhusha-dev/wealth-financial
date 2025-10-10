@@ -11,6 +11,7 @@ import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 
 // Font Awesome CSS
 import '@fortawesome/fontawesome-free/css/all.css'
+import './assets/fontawesome-fix.css'
 
 // Custom CSS
 import './assets/main.css'
