@@ -102,12 +102,29 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
-  function logout() {
+  async function logout() {
     currentUser.value = null
     isAuthenticated.value = false
     loginError.value = ''
+    
     localStorage.removeItem('authToken')
     localStorage.removeItem('currentUser')
+    localStorage.clear()
+    
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', '/login')
+      window.addEventListener('popstate', preventBack)
+    }
+    
+    return Promise.resolve()
+  }
+  
+  function preventBack() {
+    window.history.pushState(null, '', '/login')
+  }
+  
+  function cleanupLogout() {
+    window.removeEventListener('popstate', preventBack)
   }
 
   function initializeAuth() {
@@ -143,6 +160,7 @@ export const useAuthStore = defineStore('auth', () => {
     fullName,
     login,
     logout,
+    cleanupLogout,
     initializeAuth,
     updateUserPreferences
   }
