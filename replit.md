@@ -5,6 +5,13 @@ This is a comprehensive Vue 3 wealth management application built with Vite, Typ
 
 ## Recent Changes
 
+### October 10, 2025 - Dark Mode Text Visibility Fix
+- ✅ Fixed critical dark mode bug where text was invisible
+- ✅ Resolved conflicting CSS: replaced `@media (prefers-color-scheme: dark)` with `[data-theme="dark"]` in base.css
+- ✅ Ensured theme toggle controls dark mode properly (not system preferences)
+- ✅ Verified all components use CSS variables that adapt correctly to theme changes
+- ✅ Text now properly visible in both light and dark modes across all pages
+
 ### October 9, 2025 - Unit Trust Module Implementation
 - ✅ Created comprehensive unit trust management system with full buy/sell/switch functionality
 - ✅ Implemented separate immutable catalog (unit-trust-catalog.json) containing all available funds
