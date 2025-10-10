@@ -1,0 +1,87 @@
+✅ Typical Bond Module Features (Professional Wealth App)
+
+Here’s what a complete bond module normally includes:
+
+Feature Category	Features
+Bond Overview	Bond listings, issuers, coupon rate, maturity date, yield, risk level
+Portfolio Bonds	User-owned bonds list, coupon schedule, accrued interest
+Bond Trading	Buy/Sell (simulation or live logic later), order history
+Bond Analytics	Yield to maturity (YTM), Macaulay duration, convexity, price trends
+Market Data	Government bonds, corporate bonds, bond ratings (AAA, AA, BBB, etc)
+Risk & Performance	Interest rate risk, credit risk rating, price volatility
+Reports	Export to CSV/PDF, coupon payment calendar
+UI Elements	Bond comparison tool, bond screener, filters + AG-grid tables
+Graphs/Charts	Price vs Yield curve, maturity ladder, portfolio bond allocation
+✅ Bond Module Pages To Build
+
+Do you want it like this?
+
+✅ 1. Bond Market – List of available bonds to invest
+✅ 2. My Bonds – Bonds owned by the user
+✅ 3. Bond Details – Drilldown page for selected bond
+✅ 4. Buy/Sell Bonds – Trading simulation modal
+✅ 5. Bond Analytics – Yield curve, duration, rating risk
+✅ 6. Bond Reports – CSV/PDF download
+✅ 7. Bond Comparison – Compare multiple bonds
+
+⚙️ Before I send the prompt…
+
+I need your choices for these:
+
+1. 📊 Data Type
+
+Do you want mock financial data for now?
+
+A. Yes – generate dummy bond data with real-like yields
+
+B. No – I will connect real API later
+
+2. 💱 Currency Format
+
+A. MYR (Malaysia like CIMB)
+
+B. USD
+
+C. EUR
+
+3. 🔢 Calculation Features
+
+Include bond financial formulas?
+
+✅ Yield to Maturity (YTM)
+
+✅ Dirty Price / Clean Price
+
+✅ Convexity & Duration
+
+✅ Coupon Payment Scheduler
+Include? Yes / No
+
+4. 📊 UI Style
+
+Pick style direction:
+
+A. CIMB Professional Red (like current app)
+
+B. Glassmorphic Black (modern)
+
+C. Neobanking Clean White (minimal)
+
+D. Dark Fintech (Bloomberg style)
+
+✅ Reply with your choices:
+
+Example answer:
+
+1. A (mock data)
+2. A (MYR)
+3. Yes include calculations
+4. A (CIMB Professional Red)
+
+
+Once I get this, I’ll send:
+✅ Full Replit AI prompt
+✅ Bond module file structure
+✅ Vue pages + store design
+✅ Dummy bond dataset (20+ bonds)
+✅ AG-Grid bond tables
