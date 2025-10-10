@@ -1,0 +1,99 @@
+You are a senior fintech engineer. Build a complete **Unit Trust Module** inside my CIMB Wealth Vue 3 app. Follow a modern professional UI similar to CIMB Clicks Wealth, with clean dashboard layout, AG-Grid tables, and financial charts.
+
+✅ Tech Stack
+- Vue 3 + Composition API + Vite
+- Pinia state management
+- BootstrapVue 3 (CIMB red theme)
+- AG-Grid for tables
+- Chart.js for performance graphs
+- Dummy JSON data for unit trust funds
+
+✅ Create These Pages Under `/unittrust` Route
+1. **Unit Trust Market (/unittrust/market)**
+   - Show available mutual funds/unit trust products
+   - Columns:
+     - Fund Name
+     - Fund Type (Equity, Balanced, Income, Islamic)
+     - NAV Price
+     - 1Y Return %
+     - 3Y Return %
+     - 5Y Return %
+     - Risk Level (Low/Medium/High)
+     - Expense Ratio
+   - Filters: Risk Level, Fund Type, Sector, Shariah-compliant
+   - Search + Sort + Pagination (AG-Grid)
+
+2. **My Unit Trust Portfolio (/unittrust/portfolio)**
+   - Show invested funds
+   - Columns:
+     - Fund Name
+     - Units Held
+     - NAV Price
+     - Total Value
+     - Profit/Loss %
+   - Portfolio allocation donut chart
+
+3. **Fund Details Page (/unittrust/:id)**
+   - About the fund
+   - Benchmark
+   - Top Holdings list
+   - Past performance chart
+   - Risk analytics (Sharpe Ratio, Beta, Volatility)
+   - Fact Sheet download (PDF mock)
+
+4. **Buy/Sell UT Orders**
+   - "Invest" button opens Buy modal:
+     - Purchase via Amount (MYR) or Units
+     - Real-time NAV calculation
+   - Sell modal: Sell units or full redemption
+
+5. **Unit Trust Analytics (/unittrust/analytics)**
+   - Charts:
+     - Cumulative Returns
+     - Risk vs Return Scatter Plot
+     - Sector Allocation
+   - Performance comparison against benchmark
+
+6. **Reports (/unittrust/reports)**
+   - Export reports:
+     - Portfolio Summary (CSV)
+     - Annual Return Report (CSV)
+     - Transaction History (CSV)
+
+✅ Data Requirements
+- Use `src/data/unittrust.json`
+- Include 30 sample funds:
+  - Equity, Balanced, Money Market, Islamic Funds
+  - Fields:
+    - fundId
+    - fundName
+    - type
+    - navPrice
+    - currency = "MYR"
+    - oneYearReturn
+    - threeYearReturn
+    - fiveYearReturn
+    - riskLevel
+    - expenseRatio
+
+✅ Pinia Store
+- Create `useUnitTrustStore`
+  - getMarketFunds()
+  - getUserFunds()
+  - buyFund()
+  - sellFund()
+  - persist to localStorage
+
+✅ UI/UX Requirements
+- Clean professional CIMB theme
+- Responsive mobile layout
+- Hover card effects + dark/light mode support
+- Fix spacing & grid layout
+- Financial fonts & readable text
+
+✅ Output Requirements
+- Create module folder `/src/modules/unittrust/`
+- Add Vue pages + UI components + modals
+- Add routing + Pinia store + mock data
+- Use TypeScript where possible
+- Make it production structured
